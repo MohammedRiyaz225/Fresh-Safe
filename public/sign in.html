@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In / Register – Fresh & Safe | Client Portal</title>
+  <meta name="description" content="Sign in to your Fresh & Safe account to track orders, manage subscriptions, earn loyalty rewards and enjoy a personalised grocery experience.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/app.js"></script>
+  <style>
+    :root {
+      --green-dark: #0a2e0f;
+      --green-mid: #103214;
+      --green-main: #1b5e20;
+      --green-bright: #2e7d32;
+      --green-light: #4caf50;
+      --green-mint: #8ae37c;
+      --green-pale: #e8f5e9;
+      --green-bg: #f1faf2;
+      --white: #ffffff;
+      --text-dark: #0d1f0e;
+      --text-mid: #2e4a30;
+      --text-soft: #5f7a60;
+      --text-muted: #8aa08b;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.14);
+      --shadow-xl: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-glow: 0 0 60px rgba(138,227,124,0.3);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --radius-xl: 40px;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --transition-bounce: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--green-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; min-height: 100vh; position: relative; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; vertical-align: middle; }
+    button { font-family: 'Inter', sans-serif; cursor: pointer; border: none; background: none; }
+    input, select { font-family: 'Inter', sans-serif; }
+
+    .orb { position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: -1; opacity: 0.55; animation: orbFloat 22s ease-in-out infinite; }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(138,227,124,0.7), transparent 70%); top: -180px; right: -120px; }
+    .orb-2 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(76,175,80,0.5), transparent 70%); bottom: -200px; left: -150px; animation-delay: -10s; }
+    @keyframes orbFloat { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,-30px) scale(1.08)} 66%{transform:translate(-30px,30px) scale(0.95)} }
+
+    .navbar { position: sticky; top: 0; z-index: 1000; padding: 0 5%; background: rgba(10,46,15,0.88); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); box-shadow: 0 8px 32px rgba(0,0,0,0.22); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .nav-logo { font-family: 'Outfit', sans-serif; font-size: 1.55rem; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .nav-logo .accent { color: var(--green-mint); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; font-weight: 500; padding: 8px 16px; border-radius: 999px; transition: var(--transition); }
+    .nav-links a:hover { background: rgba(138,227,124,0.15); color: var(--green-mint); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .cart-btn { position: relative; display: flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--green-bright), var(--green-light)); color: var(--white); padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 0.9rem; transition: var(--transition-bounce); box-shadow: 0 4px 16px rgba(46,125,50,0.35); }
+    .cart-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(46,125,50,0.5); }
+    .cart-badge { position: absolute; top: -6px; right: -6px; background: #ff5252; color: white; font-size: 0.68rem; font-weight: 700; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    @media (max-width: 800px) { .nav-links { display: none; } }
+
+    /* BREADCRUMB */
+    .breadcrumb { padding: 24px 5% 0; display: flex; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--text-muted); flex-wrap: wrap; }
+    .breadcrumb a { color: var(--green-bright); font-weight: 500; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb i { font-size: 0.7rem; }
+
+    /* AUTH LAYOUT */
+    .auth-shell { padding: 24px 5% 56px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 44px; max-width: 1320px; margin: 0 auto; align-items: center; min-height: calc(100vh - 140px); }
+    @media (max-width: 1024px) { .auth-shell { grid-template-columns: 1fr; gap: 28px; } }
+
+    /* LEFT PANEL - HERO */
+    .auth-brand { position: relative; padding: 44px; border-radius: var(--radius-xl); background: linear-gradient(145deg, var(--green-dark) 0%, var(--green-mid) 50%, #1b5e20 100%); color: white; overflow: hidden; box-shadow: var(--shadow-xl); min-height: 600px; display: flex; flex-direction: column; justify-content: space-between; }
+    .auth-brand::before { content:''; position:absolute; top:-20%; right:-10%; width:480px; height:480px; border-radius:50%; background:radial-gradient(circle, rgba(138,227,124,0.28), transparent 70%); animation: orbFloat 14s ease-in-out infinite; }
+    .auth-brand::after { content:''; position:absolute; bottom:-20%; left:-10%; width:380px; height:380px; border-radius:50%; background:radial-gradient(circle, rgba(76,175,80,0.22), transparent 70%); animation: orbFloat 16s ease-in-out infinite reverse; }
+    .brand-logo-lg { font-family: 'Outfit', sans-serif; font-size: 2.1rem; font-weight: 900; letter-spacing: -0.03em; position: relative; z-index: 1; }
+    .brand-logo-lg .accent { color: var(--green-mint); }
+    .brand-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: rgba(138,227,124,0.2); border: 1px solid rgba(138,227,124,0.35); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin: 28px 0 16px; color: var(--green-mint); position: relative; z-index: 1; backdrop-filter: blur(6px); }
+    .brand-badge .dot { width:8px;height:8px;border-radius:50%;background:var(--green-mint);animation:pulse 2s infinite }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 4px rgba(46,125,50,0.15)} 50%{opacity:0.6;transform:scale(1.25)} }
+    .brand-h { font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 3.2vw, 2.8rem); font-weight: 900; line-height: 1.08; letter-spacing: -0.03em; position: relative; z-index: 1; margin-bottom: 16px; }
+    .brand-h .grad { background: linear-gradient(135deg, var(--green-mint), #c8e6c9, var(--green-mint)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; background-size: 200% 200%; animation: gradShift 5s ease infinite; }
+    @keyframes gradShift { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+    .brand-p { font-size: 1rem; line-height: 1.75; opacity: 0.88; position: relative; z-index: 1; max-width: 480px; margin-bottom: 28px; }
+    .feature-list { position: relative; z-index: 1; display: grid; gap: 14px; }
+    .feature-list li { list-style: none; display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 16px; background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); transition: var(--transition-bounce); }
+    .feature-list li:hover { transform: translateX(6px); background: rgba(255,255,255,0.1); border-color: rgba(138,227,124,0.3); }
+    .feature-list i { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--green-bright), var(--green-light)); display: flex; align-items: center; justify-content: center; color: white; flex-shrink: 0; box-shadow: 0 4px 16px rgba(46,125,50,0.4); }
+    .feature-list strong { font-weight: 600; font-size: 0.92rem; display: block; margin-bottom: 2px; }
+    .feature-list span { font-size: 0.78rem; opacity: 0.78; }
+    .brand-stats { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 32px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); }
+    .brand-stat { text-align: center; }
+    .brand-stat-num { font-family: 'Outfit', sans-serif; font-size: 1.7rem; font-weight: 900; color: var(--green-mint); line-height: 1; }
+    .brand-stat-lbl { font-size: 0.72rem; opacity: 0.78; margin-top: 4px; }
+
+    /* RIGHT PANEL - FORM */
+    .auth-form-wrap { position: relative; }
+    .form-card { background: rgba(255,255,255,0.92); backdrop-filter: blur(24px) saturate(180%); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg); border: 1px solid rgba(138,227,124,0.25); }
+    @media (max-width: 600px) { .form-card { padding: 28px 22px; } }
+
+    .form-tabs { display: flex; gap: 6px; padding: 5px; background: rgba(46,125,50,0.08); border-radius: 999px; margin-bottom: 28px; position: relative; }
+    .tab-indicator { position: absolute; top: 5px; left: 5px; height: calc(100% - 10px); width: calc(50% - 2.5px); background: white; border-radius: 999px; transition: transform 0.45s cubic-bezier(0.34,1.56,0.64,1); box-shadow: var(--shadow-sm); }
+    .form-tabs.reg .tab-indicator { transform: translateX(100%); }
+    .tab-btn { flex: 1; padding: 11px; text-align: center; font-weight: 700; font-size: 0.9rem; color: var(--text-mid); position: relative; z-index: 1; cursor: pointer; transition: color 0.3s ease; font-family: 'Inter', sans-serif; border-radius: 999px; }
+    .tab-btn.active { color: var(--green-bright); }
+
+    .form-title { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 6px; color: var(--text-dark); }
+    .form-subtitle { color: var(--text-soft); font-size: 0.92rem; margin-bottom: 24px; }
+    .form-subtitle a { color: var(--green-bright); font-weight: 600; }
+    .form-subtitle a:hover { text-decoration: underline; }
+
+    .form-body { position: relative; min-height: 420px; }
+    .tab-pane { position: absolute; inset: 0; transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1); pointer-events: none; opacity: 0; transform: translateX(12px); }
+    .tab-pane.active { pointer-events: auto; opacity: 1; transform: translateX(0); position: relative; }
+    .tab-pane.leave { transform: translateX(-12px); opacity: 0; }
+
+    .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .field label { font-size: 0.82rem; font-weight: 600; color: var(--text-mid); display: flex; justify-content: space-between; align-items: center; }
+    .field label a { color: var(--green-bright); font-weight: 600; font-size: 0.78rem; }
+    .field label a:hover { text-decoration: underline; }
+    .input-wrap { position: relative; }
+    .input-wrap i { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--text-muted); transition: var(--transition); z-index: 1; }
+    .input-wrap input { width: 100%; padding: 14px 16px 14px 44px; border-radius: 16px; border: 1.5px solid rgba(138,227,124,0.25); background: rgba(255,255,255,0.9); font-size: 0.92rem; outline: none; transition: var(--transition); color: var(--text-dark); }
+    .input-wrap input:focus { border-color: var(--green-bright); box-shadow: 0 0 0 4px rgba(46,125,50,0.12); background: white; }
+    .input-wrap input:focus + i, .input-wrap:focus-within i { color: var(--green-bright); }
+    .input-wrap .toggle-pw { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); cursor: pointer; padding: 6px; border-radius: 8px; transition: var(--transition); }
+    .input-wrap .toggle-pw:hover { background: rgba(46,125,50,0.1); color: var(--green-bright); }
+
+    .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 500px) { .row-2 { grid-template-columns: 1fr; } }
+
+    .check-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 14px 0 20px; flex-wrap: wrap; }
+    .check-row label { display: inline-flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-mid); cursor: pointer; font-weight: 500; }
+    .check-row input { accent-color: var(--green-bright); width: 16px; height: 16px; cursor: pointer; }
+    .check-row a { color: var(--green-bright); font-size: 0.82rem; font-weight: 600; }
+    .check-row a:hover { text-decoration: underline; }
+
+    .submit-btn { width: 100%; padding: 15px 24px; border-radius: 999px; background: linear-gradient(135deg, var(--green-bright) 0%, var(--green-light) 100%); color: white; font-weight: 700; font-size: 0.98rem; display: flex; align-items: center; justify-content: center; gap: 10px; transition: var(--transition-bounce); box-shadow: 0 8px 24px rgba(46,125,50,0.4); position: relative; overflow: hidden; cursor: pointer; border: none; font-family: 'Inter', sans-serif; margin-top: 8px; }
+    .submit-btn::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition:left 0.6s ease; }
+    .submit-btn:hover::before { left: 100%; }
+    .submit-btn:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 16px 40px rgba(46,125,50,0.5); }
+    .submit-btn:active { transform: translateY(-1px); }
+
+    .divider { display: flex; align-items: center; gap: 14px; margin: 24px 0 18px; }
+    .divider::before, .divider::after { content:''; flex:1; height:1px; background:linear-gradient(to right, transparent, rgba(138,227,124,0.35), transparent); }
+    .divider span { font-size: 0.78rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .social-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .social-btn { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; border-radius: 14px; background: white; border: 1.5px solid rgba(138,227,124,0.2); font-weight: 600; font-size: 0.85rem; color: var(--text-mid); cursor: pointer; transition: var(--transition-bounce); font-family: 'Inter', sans-serif; }
+    .social-btn:hover { transform: translateY(-2px); border-color: var(--green-bright); box-shadow: var(--shadow-md); }
+    .social-btn.google i { color: #ea4335; }
+    .social-btn.apple i { color: #000; }
+    .social-btn.phone i { color: var(--green-bright); }
+
+    .guest-option { margin-top: 18px; padding: 14px; border-radius: 14px; background: linear-gradient(135deg, rgba(138,227,124,0.1), rgba(76,175,80,0.06)); border: 1px dashed rgba(138,227,124,0.4); text-align: center; }
+    .guest-option strong { color: var(--green-bright); }
+    .guest-option a { color: var(--green-bright); font-weight: 700; }
+    .guest-option a:hover { text-decoration: underline; }
+
+    /* PASSWORD STRENGTH */
+    .pw-strength { margin-top: 6px; display: flex; gap: 6px; align-items: center; }
+    .pw-bar { flex: 1; height: 6px; border-radius: 999px; background: rgba(158,158,158,0.2); overflow: hidden; }
+    .pw-bar-fill { height: 100%; width: 0%; border-radius: 999px; transition: all 0.3s ease; background: #e53935; }
+    .pw-label { font-size: 0.7rem; font-weight: 700; min-width: 60px; text-align: right; color: var(--text-muted); }
+
+    .msg { padding: 12px 16px; border-radius: 14px; margin-bottom: 16px; font-size: 0.88rem; font-weight: 600; display: none; animation: slideIn 0.3s ease; }
+    .msg.show { display: block; }
+    .msg.success { background: rgba(138,227,124,0.18); color: var(--green-bright); border: 1px solid rgba(138,227,124,0.4); }
+    .msg.error { background: rgba(239,83,80,0.1); color: #c62828; border: 1px solid rgba(239,83,80,0.3); }
+    @keyframes slideIn { from { opacity:0; transform: translateY(-8px); } to { opacity:1; transform: translateY(0); } }
+
+    .site-foot { padding: 24px 5%; text-align: center; color: var(--text-muted); font-size: 0.82rem; }
+    .site-foot strong { color: var(--green-bright); }
+  </style>
+</head>
+<body>
+
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="accent">F&S</span> Fresh &amp; Safe</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="fruits.html">Fruits</a>
+      <a href="vegetables.html">Vegetables</a>
+      <a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <a href="cart.html" class="cart-btn" id="cartNavBtn">
+        <i class="fa fa-shopping-basket"></i> Cart
+        <span class="cart-badge" id="cartCount" data-cart-count>0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html"><i class="fa fa-house"></i> Home</a>
+  <i class="fa fa-chevron-right"></i>
+  <span style="color:var(--text-mid);font-weight:600">Client Account</span>
+</div>
+
+<div class="auth-shell">
+
+  <!-- LEFT - BRAND -->
+  <div class="auth-brand">
+    <div>
+      <div class="brand-logo-lg"><span class="accent">F&S</span> Fresh &amp; Safe</div>
+      <div class="brand-badge"><span class="dot"></span> Next-Gen Client Portal</div>
+      <h1 class="brand-h">Your Personalised<br><span class="grad">Farm-Fresh Experience</span></h1>
+      <p class="brand-p">Join thousands of families who trust Fresh &amp; Safe for premium, traceable produce delivered straight from verified farms to their doorstep.</p>
+
+      <ul class="feature-list">
+        <li><i class="fa fa-gauge-high"></i><div><strong>Personal Dashboard</strong><span>Track orders, wallet &amp; rewards in one place</span></div></li>
+        <li><i class="fa fa-coins"></i><div><strong>Loyalty Program</strong><span>Earn points on every order &amp; unlock exclusive tiers</span></div></li>
+        <li><i class="fa fa-repeat"></i><div><strong>Smart Subscriptions</strong><span>Never run out — save 5% with auto deliveries</span></div></li>
+        <li><i class="fa fa-location-dot"></i><div><strong>Live Tracking</strong><span>Know exactly where your order is in real-time</span></div></li>
+      </ul>
+    </div>
+
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-num">15K+</div><div class="brand-stat-lbl">Happy Clients</div></div>
+      <div class="brand-stat"><div class="brand-stat-num">200+</div><div class="brand-stat-lbl">Delivery Areas</div></div>
+      <div class="brand-stat"><div class="brand-stat-num">98%</div><div class="brand-stat-lbl">Satisfaction</div></div>
+    </div>
+  </div>
+
+  <!-- RIGHT - FORMS -->
+  <div class="auth-form-wrap">
+    <div class="form-card">
+      <div class="form-tabs" id="formTabs">
+        <div class="tab-indicator" id="tabIndicator"></div>
+        <div class="tab-btn active" data-tab="login"><i class="fa fa-right-to-bracket"></i> Sign In</div>
+        <div class="tab-btn" data-tab="register"><i class="fa fa-user-plus"></i> Register</div>
+      </div>
+
+      <div id="loginPane" class="tab-pane active">
+        <h2 class="form-title">Welcome back 👋</h2>
+        <p class="form-subtitle">Sign in to access your dashboard, orders and rewards. New here? <a href="#" onclick="switchTab('register');return false">Create an account</a></p>
+
+        <div id="loginMsg" class="msg"></div>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="field">
+            <label for="li_ident">Email or Username</label>
+            <div class="input-wrap">
+              <input type="text" id="li_ident" required placeholder="name@example.com" autocomplete="username">
+              <i class="fa fa-envelope"></i>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="li_pw">Password <a href="#" onclick="alert('A password reset link would be sent to your email. Demo mode: please try your password again or contact support.');return false">Forgot password?</a></label>
+            <div class="input-wrap">
+              <input type="password" id="li_pw" required placeholder="Enter your password" autocomplete="current-password">
+              <i class="fa fa-lock"></i>
+              <span class="toggle-pw" onclick="togglePw('li_pw', this)"><i class="fa fa-eye"></i></span>
+            </div>
+          </div>
+
+          <div class="check-row">
+            <label><input type="checkbox" id="li_remember"> Remember me for 30 days</label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fa fa-right-to-bracket"></i> Sign In to Your Account
+          </button>
+        </form>
+
+        <div class="divider"><span>Or continue with</span></div>
+        <div class="social-row">
+          <button type="button" class="social-btn google" onclick="socialLogin('Google')"><i class="fab fa-google"></i> Google</button>
+          <button type="button" class="social-btn apple" onclick="socialLogin('Apple')"><i class="fab fa-apple"></i> Apple</button>
+          <button type="button" class="social-btn phone" onclick="socialLogin('Phone')"><i class="fa fa-phone"></i> OTP</button>
+        </div>
+
+        <div class="guest-option">
+          Just browsing? <a href="cart.html">Continue as Guest →</a>
+        </div>
+      </div>
+
+      <div id="registerPane" class="tab-pane">
+        <h2 class="form-title">Create your account 🥬</h2>
+        <p class="form-subtitle">Start your fresh journey today. Get <strong style="color:var(--green-bright)">20% off</strong> your first order with code <strong>FRESH20</strong>. Already registered? <a href="#" onclick="switchTab('login');return false">Sign in</a></p>
+
+        <div id="regMsg" class="msg"></div>
+
+        <form id="registerForm" onsubmit="handleRegister(event)">
+          <div class="field">
+            <label for="reg_name">Full Name</label>
+            <div class="input-wrap">
+              <input type="text" id="reg_name" required placeholder="e.g. Priya Sharma" autocomplete="name">
+              <i class="fa fa-user"></i>
+            </div>
+          </div>
+
+          <div class="row-2">
+            <div class="field">
+              <label for="reg_email">Email Address</label>
+              <div class="input-wrap">
+                <input type="email" id="reg_email" required placeholder="name@example.com" autocomplete="email">
+                <i class="fa fa-envelope"></i>
+              </div>
+            </div>
+            <div class="field">
+              <label for="reg_phone">Phone Number</label>
+              <div class="input-wrap">
+                <input type="tel" id="reg_phone" placeholder="+91 XXXXX XXXXX" autocomplete="tel">
+                <i class="fa fa-phone"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="reg_pw">Password</label>
+            <div class="input-wrap">
+              <input type="password" id="reg_pw" required minlength="6" placeholder="Create a strong password" autocomplete="new-password" oninput="checkPwStrength(this.value)">
+              <i class="fa fa-lock"></i>
+              <span class="toggle-pw" onclick="togglePw('reg_pw', this)"><i class="fa fa-eye"></i></span>
+            </div>
+            <div class="pw-strength">
+              <div class="pw-bar"><div class="pw-bar-fill" id="pwFill"></div></div>
+              <div class="pw-label" id="pwLabel">Weak</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="reg_pw2">Confirm Password</label>
+            <div class="input-wrap">
+              <input type="password" id="reg_pw2" required minlength="6" placeholder="Retype your password" autocomplete="new-password">
+              <i class="fa fa-lock"></i>
+            </div>
+          </div>
+
+          <div class="check-row">
+            <label><input type="checkbox" id="reg_terms" required> I agree to the <a href="#">Terms</a> &amp; <a href="#">Privacy Policy</a></label>
+            <label><input type="checkbox" id="reg_offer"> Email me offers &amp; recipes</label>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fa fa-user-plus"></i> Create My Account
+          </button>
+        </form>
+
+        <div class="divider"><span>Sign up faster</span></div>
+        <div class="social-row">
+          <button type="button" class="social-btn google" onclick="socialLogin('Google')"><i class="fab fa-google"></i> Google</button>
+          <button type="button" class="social-btn apple" onclick="socialLogin('Apple')"><i class="fab fa-apple"></i> Apple</button>
+          <button type="button" class="social-btn phone" onclick="socialLogin('Phone')"><i class="fa fa-phone"></i> OTP</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="site-foot">
+  © 2025 <strong>Fresh &amp; Safe</strong>. All rights reserved. Made with ❤️ for healthier families.
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    FS.Cart.updateBadge();
+    if (FS.Auth.isLoggedIn()) {
+      setTimeout(() => { window.location.href = 'dashboard.html'; }, 200);
+    }
+  });
+
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+  });
+  function switchTab(tab) {
+    const tabs = document.getElementById('formTabs');
+    const panes = document.querySelectorAll('.tab-pane');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    tabs.classList.toggle('reg', tab === 'register');
+    panes.forEach(p => {
+      const isTarget = p.id === (tab === 'login' ? 'loginPane' : 'registerPane');
+      p.classList.toggle('leave', !isTarget && p.classList.contains('active'));
+      setTimeout(() => {
+        p.classList.toggle('active', isTarget);
+        if (!isTarget) p.classList.remove('leave');
+      }, 200);
+    });
+  }
+
+  function togglePw(id, btn) {
+    const el = document.getElementById(id);
+    const i = btn.querySelector('i');
+    if (el.type === 'password') { el.type = 'text'; i.className = 'fa fa-eye-slash'; }
+    else { el.type = 'password'; i.className = 'fa fa-eye'; }
+  }
+
+  function checkPwStrength(v) {
+    const fill = document.getElementById('pwFill');
+    const lbl = document.getElementById('pwLabel');
+    let score = 0;
+    if (v.length >= 6) score++;
+    if (v.length >= 10) score++;
+    if (/[A-Z]/.test(v) && /[a-z]/.test(v)) score++;
+    if (/\d/.test(v)) score++;
+    if (/[^A-Za-z0-9]/.test(v)) score++;
+    const colors = ['#e53935','#f57c00','#fbc02d','#66bb6a','#2e7d32'];
+    const labels = ['Weak','Fair','Good','Strong','Excellent'];
+    const widths = [20,40,60,80,100];
+    const idx = Math.max(0, Math.min(4, v.length ? score - 1 : -1));
+    fill.style.width = (v.length ? widths[idx] : 0) + '%';
+    fill.style.background = colors[idx] || '#e53935';
+    lbl.textContent = v.length ? labels[idx] : 'Weak';
+    lbl.style.color = colors[idx] || 'var(--text-muted)';
+  }
+
+  function showMsg(id, text, type) {
+    const el = document.getElementById(id);
+    el.className = 'msg ' + type + ' show';
+    el.textContent = text;
+    clearTimeout(el._t);
+    el._t = setTimeout(()=> el.classList.remove('show'), 5000);
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const ident = document.getElementById('li_ident').value.trim();
+    const pw = document.getElementById('li_pw').value;
+    const result = FS.Auth.login(ident, pw);
+    if (result.ok) {
+      showMsg('loginMsg', '✅ Welcome back, ' + result.user.name + '! Redirecting...', 'success');
+      setTimeout(() => { window.location.href = 'dashboard.html'; }, 1000);
+    } else {
+      showMsg('loginMsg', '❌ ' + result.message + '. Try registering if you are new.', 'error');
+    }
+  }
+
+  function handleRegister(e) {
+    e.preventDefault();
+    const pw = document.getElementById('reg_pw').value;
+    const pw2 = document.getElementById('reg_pw2').value;
+    if (pw !== pw2) { showMsg('regMsg', '❌ Passwords do not match', 'error'); return; }
+    const result = FS.Auth.register({
+      name: document.getElementById('reg_name').value.trim(),
+      email: document.getElementById('reg_email').value.trim(),
+      phone: document.getElementById('reg_phone').value.trim(),
+      password: pw
+    });
+    if (result.ok) {
+      showMsg('regMsg', '🎉 Welcome, ' + result.user.name + '! Account created. Redirecting to dashboard...', 'success');
+      setTimeout(() => { window.location.href = 'dashboard.html'; }, 1300);
+    } else {
+      showMsg('regMsg', '❌ ' + result.message, 'error');
+    }
+  }
+
+  function socialLogin(type) {
+    FS.Toast.show('🔐 ' + type + ' login — demo redirect');
+    if (!FS.Auth.isLoggedIn()) {
+      FS.Auth.register({ name: type + ' User', email: 'demo_' + Date.now() + '@freshsafe.in', password: 'demo1234' });
+    }
+    setTimeout(() => { window.location.href = 'dashboard.html'; }, 700);
+  }
+</script>
+</body>
+</html>

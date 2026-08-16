@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – Fresh & Safe | From Our Farms to Your Family</title>
+  <meta name="description" content="Learn about Fresh & Safe's journey from a small farm startup to India's trusted farm-fresh delivery platform. Meet our team, values, certifications, and story.">
+  <script src="js/app.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --green-dark: #0a2e0f;
+      --green-mid: #103214;
+      --green-main: #1b5e20;
+      --green-bright: #2e7d32;
+      --green-light: #4caf50;
+      --green-mint: #8ae37c;
+      --green-pale: #e8f5e9;
+      --green-bg: #f1faf2;
+      --white: #ffffff;
+      --cream: #fafff8;
+      --text-dark: #0d1f0e;
+      --text-mid: #2e4a30;
+      --text-soft: #5f7a60;
+      --text-muted: #8aa08b;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.14);
+      --shadow-xl: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-glow: 0 0 60px rgba(138,227,124,0.3);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --radius-xl: 40px;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --transition-bounce: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--green-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; position: relative; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; vertical-align: middle; }
+    button { font-family: 'Inter', sans-serif; cursor: pointer; border: none; background: none; }
+
+    /* ===== FLOATING ORBS ===== */
+    .orb {
+      position: fixed; border-radius: 50%; filter: blur(80px);
+      pointer-events: none; z-index: -1; opacity: 0.5;
+      animation: orbFloat 18s ease-in-out infinite;
+    }
+    .orb-1 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(138,227,124,0.6), transparent 70%); top: -100px; left: -100px; }
+    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(76,175,80,0.4), transparent 70%); top: 40%; right: -150px; animation-delay: -6s; }
+    .orb-3 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(46,125,50,0.35), transparent 70%); bottom: -100px; left: 30%; animation-delay: -12s; }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(40px, -30px) scale(1.08); }
+      50% { transform: translate(-30px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 40px) scale(1.05); }
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0; transform: translateY(60px);
+      transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left { opacity: 0; transform: translateX(-80px); transition: all 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right { opacity: 0; transform: translateX(80px); transition: all 0.9s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    .reveal-scale { opacity: 0; transform: scale(0.8); transition: all 0.9s cubic-bezier(0.34,1.56,0.64,1); }
+    .reveal-scale.visible { opacity: 1; transform: scale(1); }
+    .reveal-stagger > * { opacity: 0; transform: translateY(40px); transition: all 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+    /* ===== GRADIENT TEXT ===== */
+    .grad-text {
+      background: linear-gradient(135deg, var(--green-bright) 0%, var(--green-mint) 50%, #a5d6a7 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradShift 5s ease infinite;
+    }
+    @keyframes gradShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      padding: 0 5%;
+      background: rgba(10,46,15,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif; font-size: 1.55rem; font-weight: 800;
+      color: var(--white); letter-spacing: -0.02em;
+      position: relative; z-index: 1;
+    }
+    .nav-logo .accent { color: var(--green-mint); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.9); font-size: 0.9rem; font-weight: 500;
+      padding: 8px 16px; border-radius: 999px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 2px; left: 50%;
+      width: 0; height: 2px;
+      background: var(--green-mint);
+      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      transform: translateX(-50%);
+    }
+    .nav-links a:hover::after, .nav-links a.active::after { width: calc(100% - 24px); }
+    .nav-links a:hover, .nav-links a.active {
+      background: rgba(138,227,124,0.15); color: var(--green-mint);
+    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .cart-btn {
+      position: relative; display: flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: var(--white);
+      padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+      transition: var(--transition-bounce);
+      box-shadow: 0 4px 16px rgba(46,125,50,0.35);
+    }
+    .cart-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 30px rgba(46,125,50,0.5); }
+    .cart-badge {
+      position: absolute; top: -6px; right: -6px;
+      background: #ff5252; color: white; font-size: 0.68rem; font-weight: 700;
+      width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      animation: badgePop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 2px 8px rgba(255,82,82,0.5);
+    }
+    @keyframes badgePop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+
+    /* ===== BREADCRUMB ===== */
+    .breadcrumb-section {
+      padding: 20px 5%;
+      background: linear-gradient(135deg, rgba(10,46,15,0.04), rgba(138,227,124,0.08));
+      border-bottom: 1px solid rgba(138,227,124,0.15);
+    }
+    .breadcrumb {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.88rem; color: var(--text-soft);
+      flex-wrap: wrap;
+    }
+    .breadcrumb a {
+      color: var(--green-bright); font-weight: 500;
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .breadcrumb a:hover { color: var(--green-dark); transform: translateX(-2px); }
+    .breadcrumb .sep { color: var(--text-muted); font-size: 0.75rem; }
+    .breadcrumb .current {
+      color: var(--text-dark); font-weight: 600;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .about-hero {
+      padding: 60px 5% 70px;
+      position: relative;
+      z-index: 2;
+    }
+    .about-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(138,227,124,0.18);
+      border: 1px solid rgba(138,227,124,0.35);
+      color: var(--green-bright); font-size: 0.78rem; font-weight: 700;
+      padding: 7px 16px; border-radius: 999px; margin-bottom: 28px;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      backdrop-filter: blur(8px);
+    }
+    .hero-badge .dot {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--green-bright);
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 0 4px rgba(46,125,50,0.15);
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);box-shadow:0 0 0 4px rgba(46,125,50,0.15)} 50%{opacity:0.6;transform:scale(1.25);box-shadow:0 0 0 8px rgba(46,125,50,0.05)} }
+    .about-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+      font-weight: 900; line-height: 1.05; color: var(--text-dark);
+      margin-bottom: 24px; letter-spacing: -0.04em;
+    }
+    .about-hero h1 .word {
+      display: inline-block;
+      animation: wordFloat 4s ease-in-out infinite;
+    }
+    .about-hero h1 .word:nth-child(2) { animation-delay: 0.3s; }
+    .about-hero h1 .word:nth-child(3) { animation-delay: 0.6s; }
+    .about-hero h1 .word:nth-child(4) { animation-delay: 0.9s; }
+    @keyframes wordFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+    .hero-desc {
+      font-size: 1.12rem; color: var(--text-soft); max-width: 640px;
+      margin: 0 auto 48px; line-height: 1.8;
+    }
+    .mission-vision-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 28px; max-width: 1100px; margin: 0 auto;
+    }
+    .mv-card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-radius: var(--radius-xl);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(138,227,124,0.2);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-bounce);
+      text-align: left;
+    }
+    .mv-card::before {
+      content: ''; position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(138,227,124,0.12) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .mv-card:hover::before { opacity: 1; }
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(138,227,124,0.25);
+      border-color: rgba(138,227,124,0.5);
+    }
+    .mv-icon-wrap {
+      width: 72px; height: 72px; border-radius: 24px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 24px;
+      position: relative; z-index: 1;
+      transition: var(--transition-bounce);
+    }
+    .mv-card:hover .mv-icon-wrap { transform: scale(1.1) rotate(-5deg); }
+    .mission .mv-icon-wrap {
+      background: linear-gradient(135deg, var(--green-pale), rgba(138,227,124,0.3));
+    }
+    .vision .mv-icon-wrap {
+      background: linear-gradient(135deg, rgba(138,227,124,0.25), rgba(76,175,80,0.2));
+    }
+    .mv-icon-wrap i {
+      font-size: 2rem;
+    }
+    .mission .mv-icon-wrap i { color: var(--green-bright); }
+    .vision .mv-icon-wrap i { color: var(--green-dark); }
+    .mv-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem; font-weight: 800;
+      color: var(--text-dark); margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .mv-card p {
+      font-size: 0.98rem; color: var(--text-soft); line-height: 1.8;
+      position: relative; z-index: 1;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section { padding: 70px 5%; position: relative; z-index: 2; }
+    .section-header { text-align: center; margin-bottom: 56px; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(138,227,124,0.2);
+      color: var(--green-bright);
+      font-size: 0.75rem; font-weight: 700; padding: 6px 16px; border-radius: 999px;
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+      border: 1px solid rgba(138,227,124,0.3);
+      backdrop-filter: blur(8px);
+    }
+    .section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+      font-weight: 900; color: var(--text-dark); margin-bottom: 14px;
+      letter-spacing: -0.03em;
+    }
+    .section-header p { font-size: 1.02rem; color: var(--text-soft); max-width: 620px; margin: 0 auto; line-height: 1.75; }
+
+    /* ===== OUR STORY TIMELINE ===== */
+    .timeline-section {
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(12px);
+    }
+    .timeline-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline-wrap::before {
+      content: ''; position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 4px;
+      background: linear-gradient(180deg, var(--green-mint), var(--green-bright), var(--green-mint));
+      transform: translateX(-50%);
+      border-radius: 999px;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-bottom: 48px;
+      position: relative;
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-content-left {
+      text-align: right;
+      padding: 24px;
+    }
+    .timeline-content-right {
+      text-align: left;
+      padding: 24px;
+    }
+    .timeline-card {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(138,227,124,0.2);
+      transition: var(--transition-bounce);
+    }
+    .timeline-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl), 0 0 40px rgba(138,227,124,0.2);
+      border-color: rgba(138,227,124,0.5);
+    }
+    .timeline-year {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem; font-weight: 900;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .timeline-content-left .timeline-year { color: var(--green-bright); }
+    .timeline-content-right .timeline-year { color: var(--green-dark); }
+    .timeline-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem; font-weight: 700;
+      color: var(--text-dark); margin-bottom: 10px;
+    }
+    .timeline-card p {
+      font-size: 0.92rem; color: var(--text-soft); line-height: 1.7;
+    }
+    .timeline-marker {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 1.2rem;
+      box-shadow: 0 0 0 6px var(--green-bg), 0 8px 24px rgba(46,125,50,0.4);
+      position: relative; z-index: 2;
+      transition: var(--transition-bounce);
+      flex-shrink: 0;
+    }
+    .timeline-item:hover .timeline-marker {
+      transform: scale(1.15) rotate(5deg);
+      box-shadow: 0 0 0 6px rgba(138,227,124,0.25), 0 12px 36px rgba(46,125,50,0.5);
+    }
+
+    /* ===== OUR VALUES ===== */
+    .values-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .value-card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-xl);
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(138,227,124,0.2);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-bounce);
+    }
+    .value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+      background: linear-gradient(90deg, var(--green-bright), var(--green-mint), var(--green-light));
+      background-size: 200% 100%;
+      animation: gradShift 4s ease infinite;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .value-card:hover::before { transform: scaleX(1); }
+    .value-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(138,227,124,0.2);
+      border-color: rgba(138,227,124,0.5);
+    }
+    .value-icon {
+      width: 84px; height: 84px; border-radius: 28px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 2.2rem;
+      transition: var(--transition-bounce);
+    }
+    .value-card:hover .value-icon {
+      transform: scale(1.15) rotate(-6deg);
+    }
+    .value-freshness .value-icon { background: linear-gradient(135deg, #fff3e0, #ffe0b2); color: #e65100; }
+    .value-transparency .value-icon { background: linear-gradient(135deg, #e3f2fd, #bbdefb); color: #1565c0; }
+    .value-sustainability .value-icon { background: linear-gradient(135deg, var(--green-pale), #c8e6c9); color: var(--green-bright); }
+    .value-community .value-icon { background: linear-gradient(135deg, #fce4ec, #f8bbd0); color: #ad1457; }
+    .value-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem; font-weight: 800;
+      color: var(--text-dark); margin-bottom: 12px;
+    }
+    .value-card p {
+      font-size: 0.9rem; color: var(--text-soft); line-height: 1.7;
+    }
+
+    /* ===== TEAM SECTION ===== */
+    .team-section {
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(12px);
+    }
+    .team-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 28px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .team-card {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-xl);
+      padding: 32px 24px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(138,227,124,0.2);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-bounce);
+    }
+    .team-card::after {
+      content: ''; position: absolute; top: -50%; right: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(138,227,124,0.12), transparent 60%);
+      opacity: 0; transition: opacity 0.5s ease;
+    }
+    .team-card:hover::after { opacity: 1; }
+    .team-card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(138,227,124,0.25);
+      border-color: rgba(138,227,124,0.5);
+    }
+    .team-avatar-wrap {
+      position: relative;
+      width: 120px; height: 120px;
+      margin: 0 auto 22px;
+    }
+    .team-avatar-ring {
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-mint), var(--green-light));
+      background-size: 200% 200%;
+      animation: gradShift 4s ease infinite;
+      z-index: 0;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: var(--transition-bounce);
+    }
+    .team-card:hover .team-avatar-ring {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .team-avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition-bounce);
+    }
+    .team-card:hover .team-avatar {
+      transform: scale(1.05);
+    }
+    .team-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem; font-weight: 800;
+      color: var(--text-dark); margin-bottom: 4px;
+      position: relative; z-index: 1;
+    }
+    .team-role {
+      font-size: 0.88rem; font-weight: 600;
+      color: var(--green-bright);
+      margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .team-bio {
+      font-size: 0.85rem; color: var(--text-soft); line-height: 1.7;
+      margin-bottom: 20px;
+      position: relative; z-index: 1;
+    }
+    .team-social {
+      display: flex; justify-content: center; gap: 10px;
+      position: relative; z-index: 1;
+    }
+    .team-social a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-pale), rgba(138,227,124,0.2));
+      color: var(--green-bright);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      transition: var(--transition-bounce);
+    }
+    .team-social a:hover {
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: white;
+      transform: translateY(-4px) scale(1.1);
+      box-shadow: 0 6px 16px rgba(46,125,50,0.4);
+    }
+
+    /* ===== CERTIFICATIONS & AWARDS ===== */
+    .certs-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .cert-card {
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(138,227,124,0.2);
+      transition: var(--transition-bounce);
+      position: relative;
+      overflow: hidden;
+    }
+    .cert-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(138,227,124,0.08), rgba(76,175,80,0.05));
+      opacity: 0; transition: opacity 0.4s ease;
+    }
+    .cert-card:hover::before { opacity: 1; }
+    .cert-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(138,227,124,0.2);
+      border-color: rgba(138,227,124,0.5);
+    }
+    .cert-icon {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+      position: relative; z-index: 1;
+      transition: var(--transition-bounce);
+    }
+    .cert-card:hover .cert-icon {
+      transform: scale(1.15) rotate(10deg);
+    }
+    .cert-fssai .cert-icon { background: linear-gradient(135deg, #e3f2fd, #90caf9); color: #0d47a1; }
+    .cert-organic .cert-icon { background: linear-gradient(135deg, var(--green-pale), #a5d6a7); color: var(--green-dark); }
+    .cert-award .cert-icon { background: linear-gradient(135deg, #fff8e1, #ffecb3); color: #f57f17; }
+    .cert-iso .cert-icon { background: linear-gradient(135deg, #f3e5f5, #ce93d8); color: #6a1b9a; }
+    .cert-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 800;
+      padding: 4px 12px; border-radius: 999px;
+      margin-bottom: 14px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+      position: relative; z-index: 1;
+    }
+    .cert-fssai .cert-badge { background: #e3f2fd; color: #0d47a1; }
+    .cert-organic .cert-badge { background: var(--green-pale); color: var(--green-dark); }
+    .cert-award .cert-badge { background: #fff8e1; color: #f57f17; }
+    .cert-iso .cert-badge { background: #f3e5f5; color: #6a1b9a; }
+    .cert-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--text-dark); margin-bottom: 8px;
+      position: relative; z-index: 1;
+    }
+    .cert-card p {
+      font-size: 0.82rem; color: var(--text-soft); line-height: 1.6;
+      position: relative; z-index: 1;
+    }
+
+    /* ===== PRESS & MEDIA ===== */
+    .press-section {
+      background: linear-gradient(135deg, rgba(10,46,15,0.97), rgba(16,50,20,0.95));
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .press-section::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(138,227,124,0.08) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(76,175,80,0.08) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .press-section .section-tag {
+      background: rgba(138,227,124,0.15);
+      border-color: rgba(138,227,124,0.3);
+      color: var(--green-mint);
+    }
+    .press-section .section-header h2 { color: white; }
+    .press-section .section-header p { color: rgba(255,255,255,0.65); }
+    .press-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .press-badge {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--transition-bounce);
+    }
+    .press-badge:hover {
+      transform: translateY(-8px) scale(1.03);
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(138,227,124,0.4);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .press-icon {
+      width: 72px; height: 72px;
+      border-radius: 22px;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, rgba(138,227,124,0.2), rgba(76,175,80,0.15));
+      color: var(--green-mint);
+      transition: var(--transition-bounce);
+    }
+    .press-badge:hover .press-icon {
+      transform: scale(1.12) rotate(-5deg);
+      background: linear-gradient(135deg, var(--green-mint), var(--green-light));
+      color: var(--green-dark);
+    }
+    .press-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem; font-weight: 800;
+      color: white; margin-bottom: 6px;
+    }
+    .press-type {
+      font-size: 0.78rem; color: rgba(255,255,255,0.55);
+      margin-bottom: 14px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .press-quote {
+      font-size: 0.82rem; color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      font-style: italic;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ===== CTA BANNER ===== */
+    .cta-section { padding: 0 5% 70px; position: relative; z-index: 2; }
+    .cta-banner {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--green-dark) 0%, #1b5e20 50%, var(--green-bright) 100%);
+      background-size: 200% 200%;
+      animation: gradShift 8s ease infinite;
+      border-radius: 48px; padding: 64px 56px;
+      display: grid; grid-template-columns: 1.2fr 0.8fr;
+      align-items: center; gap: 48px;
+      position: relative; overflow: hidden;
+      box-shadow: var(--shadow-xl), 0 0 100px rgba(46,125,50,0.3);
+    }
+    .cta-banner::before {
+      content: ''; position: absolute; right: -100px; top: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(138,227,124,0.25), transparent 70%);
+      animation: orbFloat 10s ease-in-out infinite;
+    }
+    .cta-banner::after {
+      content: ''; position: absolute; left: -60px; bottom: -80px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+      animation: orbFloat 12s ease-in-out infinite reverse;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta-content h2 {
+      font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900; color: white; margin-bottom: 14px; letter-spacing: -0.02em;
+    }
+    .cta-content p { color: rgba(255,255,255,0.82); font-size: 1.05rem; max-width: 540px; line-height: 1.8; margin-bottom: 28px; }
+    .cta-contact-grid {
+      display: flex; flex-wrap: wrap; gap: 18px;
+      margin-bottom: 28px;
+    }
+    .cta-contact-item {
+      display: flex; align-items: center; gap: 10px;
+      color: rgba(255,255,255,0.9);
+      font-size: 0.92rem;
+      background: rgba(255,255,255,0.08);
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      transition: var(--transition);
+    }
+    .cta-contact-item:hover {
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(138,227,124,0.4);
+      transform: translateY(-2px);
+    }
+    .cta-contact-item i { color: var(--green-mint); }
+    .cta-actions {
+      display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--green-mint); color: var(--text-dark);
+      padding: 18px 36px; border-radius: 999px;
+      font-weight: 700; font-size: 1rem; white-space: nowrap;
+      transition: var(--transition-bounce); position: relative; z-index: 1;
+      box-shadow: 0 8px 28px rgba(138,227,124,0.4);
+      display: inline-flex; align-items: center; gap: 10px;
+      overflow: hidden;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: left 0.7s ease;
+    }
+    .btn-primary:hover::before { left: 100%; }
+    .btn-primary:hover {
+      background: white; transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
+    }
+    .btn-outline-white {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px);
+      color: white; padding: 18px 36px; border-radius: 999px;
+      font-weight: 600; font-size: 1rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: var(--transition-bounce);
+      display: inline-flex; align-items: center; gap: 10px;
+      position: relative; z-index: 1;
+    }
+    .btn-outline-white:hover {
+      border-color: var(--green-mint);
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+    }
+    .cta-visual {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center;
+    }
+    .cta-visual-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      max-width: 340px;
+      animation: floatCard 5s ease-in-out infinite;
+    }
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-16px); }
+    }
+    .cta-visual-icon {
+      width: 84px; height: 84px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--green-mint), var(--green-light));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2.2rem;
+      color: var(--green-dark);
+      box-shadow: 0 10px 32px rgba(138,227,124,0.45);
+    }
+    .cta-visual-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.3rem; font-weight: 800;
+      color: white; margin-bottom: 8px;
+    }
+    .cta-visual-card p {
+      font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.7;
+    }
+    .cta-visual-stat {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      display: flex; justify-content: center; gap: 28px;
+    }
+    .cta-stat-item { text-align: center; }
+    .cta-stat-num {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem; font-weight: 900;
+      color: var(--green-mint);
+      line-height: 1;
+    }
+    .cta-stat-label {
+      font-size: 0.72rem; color: rgba(255,255,255,0.55);
+      margin-top: 4px;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: linear-gradient(135deg, rgba(10,46,15,0.98), rgba(16,50,20,0.97));
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.8);
+      padding: 64px 5% 28px;
+      position: relative; overflow: hidden;
+      z-index: 2;
+    }
+    .footer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(138,227,124,0.5), transparent);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .footer-brand .logo {
+      font-family: 'Outfit', sans-serif; font-size: 1.7rem; font-weight: 800;
+      color: white; margin-bottom: 14px; letter-spacing: -0.02em;
+    }
+    .footer-brand .logo .accent { color: var(--green-mint); }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.8; margin-bottom: 22px; color: rgba(255,255,255,0.6); max-width: 360px; }
+    .footer-social { display: flex; gap: 10px; }
+    .social-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem; transition: var(--transition-bounce);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .social-icon:hover {
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: white; transform: translateY(-4px) scale(1.1);
+      border-color: var(--green-mint);
+      box-shadow: 0 8px 20px rgba(46,125,50,0.4);
+    }
+    .footer-col h5 { font-family: 'Outfit', sans-serif; font-size: 1.05rem; font-weight: 700; color: white; margin-bottom: 18px; }
+    .footer-col ul { list-style: none; display: grid; gap: 11px; }
+    .footer-col ul a {
+      font-size: 0.88rem; color: rgba(255,255,255,0.55);
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .footer-col ul a::before {
+      content: '→'; opacity: 0; transform: translateX(-6px);
+      transition: var(--transition);
+    }
+    .footer-col ul a:hover {
+      color: var(--green-mint); transform: translateX(6px);
+    }
+    .footer-col ul a:hover::before { opacity: 1; transform: translateX(0); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px; display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 14px;
+      font-size: 0.84rem; color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .mission-vision-grid { grid-template-columns: 1fr; }
+      .values-grid, .team-grid, .certs-grid, .press-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .cta-banner { grid-template-columns: 1fr; padding: 48px 36px; }
+      .cta-visual { order: -1; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .timeline-wrap::before { left: 28px; }
+      .timeline-item {
+        grid-template-columns: 56px 1fr;
+        gap: 20px;
+      }
+      .timeline-content-left { order: 2; text-align: left; padding: 12px 0; }
+      .timeline-marker { grid-row: 1 / 3; }
+      .timeline-content-right { order: 2; text-align: left; padding: 12px 0; grid-column: 2; }
+    }
+    @media (max-width: 640px) {
+      .values-grid, .team-grid, .certs-grid, .press-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .hero-actions, .cta-actions { flex-direction: column; align-items: stretch; }
+      .btn-primary, .btn-outline-white { justify-content: center; width: 100%; }
+      .cta-contact-grid { flex-direction: column; align-items: stretch; }
+      .cta-contact-item { justify-content: center; }
+      .mv-card { padding: 32px 24px; }
+      .about-hero { padding: 40px 5% 50px; }
+      .section { padding: 50px 5%; }
+      .cta-banner { padding: 40px 24px; border-radius: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Fresh<span class="accent">&</span>Safe</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="fruits.html">Fruits</a>
+        <a href="vegetables.html">Vegetables</a>
+        <a href="about.html" class="active">About</a>
+        <a href="cart.html">Cart</a>
+      </div>
+      <div class="nav-right">
+        <div id="navAccount"></div>
+        <a href="cart.html" class="cart-btn magnetic" id="cartNavBtn">
+          <i class="fa fa-cart-shopping"></i>
+          <span>Cart</span>
+          <span class="cart-badge" id="cartCount" data-cart-count>0</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="breadcrumb-section">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html"><i class="fa fa-house"></i> Home</a>
+      <span class="sep"><i class="fa fa-chevron-right"></i></span>
+      <span class="current"><i class="fa fa-leaf"></i> About Us</span>
+    </nav>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="about-hero">
+    <div class="about-hero-inner">
+      <div class="hero-badge reveal">
+        <span class="dot"></span>
+        <span>Our Story & Mission</span>
+      </div>
+      <h1 class="reveal">
+        <span class="word grad-text">From</span>
+        <span class="word">Our</span>
+        <span class="word grad-text">Farms</span>
+        <span class="word">to</span>
+        <br>
+        <span class="word grad-text">Your</span>
+        <span class="word">Family</span>
+      </h1>
+      <p class="hero-desc reveal">
+        We're on a mission to revolutionize India's food supply chain by connecting local farmers directly to your doorstep. Every bite you take carries the love, care, and dedication of thousands of farming families we proudly partner with.
+      </p>
+      <div class="mission-vision-grid reveal-stagger">
+        <div class="mv-card mission">
+          <div class="mv-icon-wrap">
+            <i class="fa fa-bullseye"></i>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To empower Indian farmers with fair prices and sustainable livelihoods while delivering the freshest, safest, and most nutritious farm produce directly to every household, building trust through complete transparency from soil to shelf.</p>
+        </div>
+        <div class="mv-card vision">
+          <div class="mv-icon-wrap">
+            <i class="fa fa-eye"></i>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To become India's most trusted farm-to-home platform by 2030 — creating a thriving ecosystem where farmers prosper, consumers eat healthy, and our food systems are regenerative, transparent, and accessible to every family across the nation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR STORY TIMELINE ===== -->
+  <section class="section timeline-section">
+    <div class="section-header reveal">
+      <span class="section-tag">Our Journey</span>
+      <h2>Our <span class="grad-text">Story</span></h2>
+      <p>From a small dream in 2020 to impacting thousands of lives — here's how we grew.</p>
+    </div>
+    <div class="timeline-wrap">
+      <div class="timeline-item reveal-left">
+        <div class="timeline-content-left">
+          <div class="timeline-card">
+            <div class="timeline-year">2020</div>
+            <h4>Fresh & Safe Founded</h4>
+            <p>Started in a small Bengaluru warehouse with 3 partner farms and a vision to change how India buys fresh produce. Our first order was a 2kg mixed vegetable basket delivered on a bicycle.</p>
+          </div>
+        </div>
+        <div class="timeline-marker">
+          <i class="fa fa-seedling"></i>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="timeline-item reveal-right">
+        <div></div>
+        <div class="timeline-marker">
+          <i class="fa fa-handshake"></i>
+        </div>
+        <div class="timeline-content-right">
+          <div class="timeline-card">
+            <div class="timeline-year">2022</div>
+            <h4>50 Partner Farms</h4>
+            <p>Expanded our farmer network across Karnataka, Tamil Nadu, and Maharashtra. Built our first state-of-the-art cold storage facility, ensuring farm freshness lasts longer for our customers.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal-left">
+        <div class="timeline-content-left">
+          <div class="timeline-card">
+            <div class="timeline-year">2023</div>
+            <h4>200 Delivery Areas</h4>
+            <p>Launched across 12 major Indian cities with 200+ delivery pin codes. Introduced AI-powered logistics that cut delivery times by 40% and reduced food waste by 35%.</p>
+          </div>
+        </div>
+        <div class="timeline-marker">
+          <i class="fa fa-truck-fast"></i>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="timeline-item reveal-right">
+        <div></div>
+        <div class="timeline-marker">
+          <i class="fa fa-users"></i>
+        </div>
+        <div class="timeline-content-right">
+          <div class="timeline-card">
+            <div class="timeline-year">2025</div>
+            <h4>15K+ Happy Customers</h4>
+            <p>Achieved a milestone of 15,000+ happy families choosing Fresh & Safe for their daily grocery needs. With a 4.9-star rating and 96% repeat purchase rate, we're just getting started.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OUR VALUES ===== -->
+  <section class="section">
+    <div class="section-header reveal">
+      <span class="section-tag">What We Stand For</span>
+      <h2>Our <span class="grad-text">Core Values</span></h2>
+      <p>These four pillars guide every decision we make and every product we deliver.</p>
+    </div>
+    <div class="values-grid reveal-stagger">
+      <div class="value-card value-freshness">
+        <div class="value-icon">
+          <i class="fa fa-apple-whole"></i>
+        </div>
+        <h3>Freshness</h3>
+        <p>Harvested at dawn, delivered by noon. Our cold-chain logistics ensure every item reaches you at peak freshness, just hours from the farm.</p>
+      </div>
+      <div class="value-card value-transparency">
+        <div class="value-icon">
+          <i class="fa fa-eye"></i>
+        </div>
+        <h3>Transparency</h3>
+        <p>Know your farmer. Scan QR codes on every package to trace origin, see harvest dates, and meet the family who grew your food.</p>
+      </div>
+      <div class="value-card value-sustainability">
+        <div class="value-icon">
+          <i class="fa fa-recycle"></i>
+        </div>
+        <h3>Sustainability</h3>
+        <p>100% compostable packaging, zero-waste warehouses, and organic farming partnerships — because healthy food needs a healthy planet.</p>
+      </div>
+      <div class="value-card value-community">
+        <div class="value-icon">
+          <i class="fa fa-heart"></i>
+        </div>
+        <h3>Community</h3>
+        <p>Fair prices for farmers, free nutrition drives for schools, and women empowerment programs — we grow together, not alone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TEAM SECTION ===== -->
+  <section class="section team-section">
+    <div class="section-header reveal">
+      <span class="section-tag">Meet The Founders</span>
+      <h2>Our <span class="grad-text">Leadership Team</span></h2>
+      <p>The passionate minds behind Fresh & Safe, building the future of farm-fresh groceries.</p>
+    </div>
+    <div class="team-grid reveal-stagger">
+      <div class="team-card">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar-ring"></div>
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Arjun Mehta - CEO" class="team-avatar">
+        </div>
+        <h3 class="team-name">Arjun Mehta</h3>
+        <div class="team-role">CEO & Co-Founder</div>
+        <p class="team-bio">Ex-AGM at a leading FMCG, Arjun spent 10 years in supply chain before leaving to build the farm-to-home platform he always wished existed.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar-ring"></div>
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Priya Raman - Farm Operations" class="team-avatar">
+        </div>
+        <h3 class="team-name">Priya Raman</h3>
+        <div class="team-role">Head of Farm Operations</div>
+        <p class="team-bio">A third-generation farmer and agricultural scientist, Priya personally onboards every farm and trains farmers in sustainable practices.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar-ring"></div>
+          <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Rohit Sharma - Logistics" class="team-avatar">
+        </div>
+        <h3 class="team-name">Rohit Sharma</h3>
+        <div class="team-role">Director of Logistics</div>
+        <p class="team-bio">With a PhD in supply chain optimization, Rohit built our AI route-planning system that delivers 98% of orders within 2 hours.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-avatar-wrap">
+          <div class="team-avatar-ring"></div>
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ananya Desai - Customer Success" class="team-avatar">
+        </div>
+        <h3 class="team-name">Ananya Desai</h3>
+        <div class="team-role">Head of Customer Success</div>
+        <p class="team-bio">Ananya leads our 50+ member customer care team and ensures every customer concern is resolved within 15 minutes — guaranteed.</p>
+        <div class="team-social">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" aria-label="Email"><i class="fa fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS & AWARDS ===== -->
+  <section class="section">
+    <div class="section-header reveal">
+      <span class="section-tag">Trusted & Recognized</span>
+      <h2>Certifications & <span class="grad-text">Awards</span></h2>
+      <p>Our commitment to quality and safety has been recognized by leading industry bodies.</p>
+    </div>
+    <div class="certs-grid reveal-stagger">
+      <div class="cert-card cert-fssai">
+        <div class="cert-icon">
+          <i class="fa fa-shield-halved"></i>
+        </div>
+        <span class="cert-badge">Licensed</span>
+        <h4>FSSAI Licensed</h4>
+        <p>Food Safety and Standards Authority of India certified — License No. 10821003000145</p>
+      </div>
+      <div class="cert-card cert-organic">
+        <div class="cert-icon">
+          <i class="fa fa-leaf"></i>
+        </div>
+        <span class="cert-badge">Certified</span>
+        <h4>Organic India Certified</h4>
+        <p>35+ partner farms certified organic under India's National Programme for Organic Production.</p>
+      </div>
+      <div class="cert-card cert-award">
+        <div class="cert-icon">
+          <i class="fa fa-trophy"></i>
+        </div>
+        <span class="cert-badge">Award 2024</span>
+        <h4>Best AgriTech Startup 2024</h4>
+        <p>Winner at the National AgriTech Excellence Awards — recognized for supply chain innovation.</p>
+      </div>
+      <div class="cert-card cert-iso">
+        <div class="cert-icon">
+          <i class="fa fa-certificate"></i>
+        </div>
+        <span class="cert-badge">ISO 22000</span>
+        <h4>ISO 22000 & HACCP</h4>
+        <p>Internationally certified food safety management system with Hazard Analysis protocols.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRESS & MEDIA ===== -->
+  <section class="section press-section">
+    <div class="section-header reveal">
+      <span class="section-tag">In The News</span>
+      <h2>Press & <span class="grad-text">Media</span></h2>
+      <p>We've been featured in some of India's most respected publications.</p>
+    </div>
+    <div class="press-grid reveal-stagger">
+      <div class="press-badge">
+        <div class="press-icon">
+          <i class="fa-solid fa-newspaper"></i>
+        </div>
+        <h4 class="press-name">Forbes India</h4>
+        <div class="press-type">Business Feature</div>
+        <p class="press-quote">"Fresh & Safe is redefining India's $500B fresh food market with their farmer-first model."</p>
+      </div>
+      <div class="press-badge">
+        <div class="press-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h4 class="press-name">Economic Times</h4>
+        <div class="press-type">Market Analysis</div>
+        <p class="press-quote">"A shining example of how tech-enabled logistics can transform agricultural supply chains."</p>
+      </div>
+      <div class="press-badge">
+        <div class="press-icon">
+          <i class="fa-solid fa-coins"></i>
+        </div>
+        <h4 class="press-name">Mint</h4>
+        <div class="press-type">Startup Spotlight</div>
+        <p class="press-quote">"From 3 farms to 50+ partners: The meteoric rise of Fresh & Safe in just 5 years."</p>
+      </div>
+      <div class="press-badge">
+        <div class="press-icon">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <h4 class="press-name">YourStory</h4>
+        <div class="press-type">Founder Story</div>
+        <p class="press-quote">"Arjun & Priya's journey: Leaving corporate jobs to build the farm-to-home platform India needed."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA BANNER ===== -->
+  <section class="cta-section">
+    <div class="cta-banner reveal-scale">
+      <div class="cta-content">
+        <h2>Want to partner with us?</h2>
+        <p>Whether you're a farmer looking for fair markets, a business seeking bulk supplies, or a courier wanting to join our delivery network — we'd love to hear from you. Let's grow together.</p>
+        <div class="cta-contact-grid">
+          <div class="cta-contact-item">
+            <i class="fa fa-envelope"></i>
+            <span>partner@freshsafe.in</span>
+          </div>
+          <div class="cta-contact-item">
+            <i class="fa fa-phone"></i>
+            <span>+91 98765 43210</span>
+          </div>
+          <div class="cta-contact-item">
+            <i class="fa fa-location-dot"></i>
+            <span>Bengaluru, India</span>
+          </div>
+        </div>
+        <div class="cta-actions">
+          <a href="mailto:partner@freshsafe.in" class="btn-primary">
+            <i class="fa fa-handshake"></i>
+            Contact Us Today
+          </a>
+          <a href="#" class="btn-outline-white">
+            <i class="fa fa-download"></i>
+            Download Partnership Deck
+          </a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <div class="cta-visual-card">
+          <div class="cta-visual-icon">
+            <i class="fa fa-handshake-angle"></i>
+          </div>
+          <h4>Grow With Us</h4>
+          <p>Join 150+ partners who trust Fresh & Safe to build a healthier food ecosystem for India.</p>
+          <div class="cta-visual-stat">
+            <div class="cta-stat-item">
+              <div class="cta-stat-num">150+</div>
+              <div class="cta-stat-label">Partners</div>
+            </div>
+            <div class="cta-stat-item">
+              <div class="cta-stat-num">₹5Cr+</div>
+              <div class="cta-stat-label">Farmer Payouts</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Fresh<span class="accent">&</span>Safe</div>
+        <p>Delivering premium farm-fresh fruits, vegetables, and cut vegetables straight from trusted Indian farms to your doorstep. Eat fresh. Live safe.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul>
+          <li><a href="fruits.html">Fresh Fruits</a></li>
+          <li><a href="vegetables.html">Fresh Vegetables</a></li>
+          <li><a href="#">Cut Vegetables</a></li>
+          <li><a href="#">Seasonal Picks</a></li>
+          <li><a href="#">Combo Offers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#">Our Farmers</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns & Refunds</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Fresh & Safe. All rights reserved. Made with <i class="fa fa-heart" style="color:#8ae37c;"></i> in India.</span>
+      <span>FSSAI Licensed | ISO 22000 Certified | Organic India Certified</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      FS.NavAccount.render("navAccount");
+
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 20) navbar.classList.add('scrolled');
+          else navbar.classList.remove('scrolled');
+        });
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-stagger').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>

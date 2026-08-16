@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresh Vegetables – Fresh & Safe | Farm-to-Door Vegetables</title>
+  <meta name="description" content="Shop premium fresh vegetables online at Fresh & Safe. Tomatoes, spinach, broccoli, carrots and more — same day delivery available.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/app.js"></script>
+  <style>
+    :root {
+      --green-dark: #0a2e0f;
+      --green-mid: #103214;
+      --green-main: #1b5e20;
+      --green-bright: #2e7d32;
+      --green-light: #4caf50;
+      --green-mint: #8ae37c;
+      --green-pale: #e8f5e9;
+      --green-bg: #f1faf2;
+      --white: #ffffff;
+      --cream: #fafff8;
+      --text-dark: #0d1f0e;
+      --text-mid: #2e4a30;
+      --text-soft: #5f7a60;
+      --text-muted: #8aa08b;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.10);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,0.14);
+      --shadow-xl: 0 24px 64px rgba(0,0,0,0.18);
+      --shadow-glow: 0 0 60px rgba(138,227,124,0.3);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --radius-xl: 40px;
+      --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+      --transition-bounce: all 0.5s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--green-bg); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; position: relative; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; vertical-align: middle; }
+    button { font-family: 'Inter', sans-serif; cursor: pointer; border: none; background: none; }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed; inset: 0; z-index: 99999;
+      background: linear-gradient(135deg, var(--green-dark), var(--green-mid));
+      display: flex; align-items: center; justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .preloader.hidden { opacity: 0; visibility: hidden; }
+    .loader-wrap { text-align: center; }
+    .loader-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem; font-weight: 900;
+      color: white; letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      animation: logoFloat 2s ease-in-out infinite;
+    }
+    .loader-logo .accent { color: var(--green-mint); }
+    .loader-bar {
+      width: 200px; height: 4px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px; overflow: hidden;
+      margin: 0 auto;
+    }
+    .loader-progress {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--green-mint), var(--green-light));
+      border-radius: 999px;
+      animation: loaderFill 2s cubic-bezier(0.65,0,0.35,1) forwards;
+    }
+    @keyframes loaderFill { to { width: 100%; } }
+    @keyframes logoFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    /* ===== CUSTOM CURSOR TRAIL ===== */
+    .cursor-trail {
+      position: fixed; width: 8px; height: 8px;
+      border-radius: 50%; pointer-events: none; z-index: 99998;
+      background: radial-gradient(circle, rgba(138,227,124,0.8), rgba(138,227,124,0));
+      transform: translate(-50%, -50%);
+      transition: opacity 0.15s ease, transform 0.15s ease;
+      mix-blend-mode: multiply;
+    }
+    .cursor-trail.ghost {
+      width: 32px; height: 32px;
+      background: radial-gradient(circle, rgba(138,227,124,0.25), rgba(138,227,124,0));
+      transition: all 0.3s ease;
+    }
+
+    /* ===== PARTICLE CANVAS ===== */
+    #particlesCanvas {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1; pointer-events: none;
+    }
+
+    /* ===== FLOATING ORBS ===== */
+    .orb {
+      position: fixed; border-radius: 50%; filter: blur(80px);
+      pointer-events: none; z-index: -1; opacity: 0.5;
+      animation: orbFloat 18s ease-in-out infinite;
+    }
+    .orb-1 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(138,227,124,0.6), transparent 70%); top: -100px; left: -100px; }
+    .orb-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(76,175,80,0.4), transparent 70%); top: 40%; right: -150px; animation-delay: -6s; }
+    .orb-3 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(46,125,50,0.35), transparent 70%); bottom: -100px; left: 30%; animation-delay: -12s; }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(40px, -30px) scale(1.08); }
+      50% { transform: translate(-30px, 20px) scale(0.95); }
+      75% { transform: translate(20px, 40px) scale(1.05); }
+    }
+
+    /* ===== FLOATING BUBBLES ===== */
+    .bubble {
+      position: absolute; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(138,227,124,0.2));
+      pointer-events: none; opacity: 0.6;
+      animation: bubbleRise linear infinite;
+    }
+    @keyframes bubbleRise {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { transform: translateY(-100px) scale(1); opacity: 0; }
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0; transform: translateY(60px);
+      transition: opacity 0.9s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.9s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-stagger > * { opacity: 0; transform: translateY(40px); transition: all 0.7s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .reveal-stagger.visible > * { opacity: 1; transform: translateY(0); }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.19s; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.26s; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.33s; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.40s; }
+
+    /* ===== GRADIENT TEXT ===== */
+    .grad-text {
+      background: linear-gradient(135deg, var(--green-bright) 0%, var(--green-mint) 50%, #a5d6a7 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: gradShift 5s ease infinite;
+    }
+    @keyframes gradShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    /* ===== RIPPLE EFFECT ===== */
+    .ripple-container { position: relative; overflow: hidden; }
+    .ripple {
+      position: absolute; border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transform: scale(0); animation: rippleAnim 0.7s ease-out;
+      pointer-events: none;
+    }
+    @keyframes rippleAnim { to { transform: scale(4); opacity: 0; } }
+
+    /* ===== MAGNETIC BUTTON BASE ===== */
+    .magnetic { position: relative; transition: transform 0.2s ease; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: sticky; top: 0; z-index: 1000;
+      padding: 0 5%;
+      transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .navbar.scrolled {
+      background: rgba(10,46,15,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+    }
+    .navbar:not(.scrolled) {
+      background: transparent;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif; font-size: 1.55rem; font-weight: 800;
+      color: var(--white); letter-spacing: -0.02em;
+      position: relative; z-index: 1;
+    }
+    .navbar:not(.scrolled) .nav-logo { color: var(--text-dark); }
+    .nav-logo .accent { color: var(--green-bright); }
+    .navbar:not(.scrolled) .nav-logo .accent { color: var(--green-bright); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      color: rgba(255,255,255,0.9); font-size: 0.9rem; font-weight: 500;
+      padding: 8px 16px; border-radius: 999px;
+      transition: var(--transition);
+      position: relative;
+    }
+    .navbar:not(.scrolled) .nav-links a { color: var(--text-mid); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 2px; left: 50%;
+      width: 0; height: 2px;
+      background: var(--green-mint);
+      transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      transform: translateX(-50%);
+    }
+    .nav-links a:hover::after, .nav-links a.active::after { width: calc(100% - 24px); }
+    .nav-links a:hover, .nav-links a.active {
+      background: rgba(138,227,124,0.15); color: var(--green-mint);
+    }
+    .navbar:not(.scrolled) .nav-links a:hover,
+    .navbar:not(.scrolled) .nav-links a.active {
+      background: rgba(46,125,50,0.08); color: var(--green-bright);
+    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .cart-btn {
+      position: relative; display: flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: var(--white);
+      padding: 10px 20px; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+      transition: var(--transition-bounce);
+      box-shadow: 0 4px 16px rgba(46,125,50,0.35);
+    }
+    .cart-btn:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 10px 30px rgba(46,125,50,0.5); }
+    .cart-badge {
+      position: absolute; top: -6px; right: -6px;
+      background: #ff5252; color: white; font-size: 0.68rem; font-weight: 700;
+      width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      animation: badgePop 0.4s cubic-bezier(0.34,1.56,0.64,1);
+      box-shadow: 0 2px 8px rgba(255,82,82,0.5);
+    }
+    @keyframes badgePop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+    .signin-btn {
+      color: rgba(255,255,255,0.9); font-size: 0.9rem; font-weight: 500;
+      padding: 9px 18px; border-radius: 999px;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      transition: var(--transition);
+      backdrop-filter: blur(8px);
+    }
+    .navbar:not(.scrolled) .signin-btn {
+      color: var(--text-mid); border-color: rgba(46,125,50,0.2);
+    }
+    .signin-btn:hover {
+      border-color: var(--green-mint); color: var(--green-mint);
+      background: rgba(138,227,124,0.1);
+      transform: translateY(-2px);
+    }
+    .navbar:not(.scrolled) .signin-btn:hover {
+      border-color: var(--green-bright); color: var(--green-bright);
+    }
+
+    /* ===== PAGE HERO ===== */
+    .page-hero {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #0a2e0f 0%, #1b5e20 60%, #2e7d32 100%);
+      padding: 56px 5%;
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 32px;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(138,227,124,0.25), transparent 70%);
+      border-radius: 50%; top: -80px; right: -60px;
+      animation: orbFloat 12s ease-in-out infinite;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(76,175,80,0.2), transparent 70%);
+      border-radius: 50%; bottom: -60px; left: 20%;
+      animation: orbFloat 15s ease-in-out infinite reverse;
+    }
+    .page-hero > * { position: relative; z-index: 2; }
+    .page-hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800; color: #fff; margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .page-hero h1 span { color: var(--green-mint); }
+    .page-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1rem; max-width: 480px; line-height: 1.75;
+    }
+    .page-hero-img {
+      width: 180px; height: 180px;
+      border-radius: 50%; object-fit: cover;
+      border: 4px solid rgba(138,227,124,0.3);
+      box-shadow: 0 0 60px rgba(138,227,124,0.3);
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      padding: 28px 5%;
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      position: relative; z-index: 2;
+    }
+    .filter-btn {
+      padding: 9px 20px; border-radius: 999px;
+      border: 1.5px solid var(--green-pale);
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      color: var(--text-mid);
+      font-size: 0.88rem; font-weight: 600; cursor: pointer;
+      transition: var(--transition-bounce);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--green-bright);
+      border-color: var(--green-bright);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(46,125,50,0.3);
+    }
+
+    /* ===== PRODUCTS ===== */
+    .shop-section { padding: 0 5% 60px; position: relative; z-index: 2; }
+    .products-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 22px; }
+    .product-card {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-bounce);
+      border: 1px solid rgba(138,227,124,0.18);
+      transform-style: preserve-3d;
+      perspective: 800px;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-xl), 0 0 50px rgba(138,227,124,0.2);
+      border-color: rgba(138,227,124,0.5);
+    }
+    .product-card.hidden { display: none; }
+    .product-img-wrap {
+      position: relative; overflow: hidden; height: 190px;
+    }
+    .product-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(255,255,255,0.05) 100%);
+      pointer-events: none;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.1); }
+    .product-badge {
+      position: absolute; top: 12px; left: 12px;
+      font-size: 0.7rem; font-weight: 700; padding: 5px 12px; border-radius: 999px;
+      color: #fff; backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      animation: badgeShine 3s ease-in-out infinite;
+    }
+    @keyframes badgeShine {
+      0%,100% { filter: brightness(1); }
+      50% { filter: brightness(1.25); }
+    }
+    .badge-organic { background: linear-gradient(135deg, #2e7d32, #4caf50); }
+    .badge-hot { background: linear-gradient(135deg, #e53935, #ff7043); }
+    .badge-new { background: linear-gradient(135deg, #1565c0, #42a5f5); }
+    .badge-sale { background: linear-gradient(135deg, #f57c00, #ffb74d); }
+    .product-wishlist {
+      position: absolute; top: 12px; right: 12px;
+      width: 34px; height: 34px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: #ccc;
+      transition: var(--transition-bounce);
+      backdrop-filter: blur(8px);
+    }
+    .product-wishlist:hover {
+      color: #e53935;
+      transform: scale(1.15);
+    }
+    .product-info { padding: 16px; }
+    .product-rating { display: flex; align-items: center; gap: 4px; font-size: 0.78rem; color: #f59e0b; margin-bottom: 6px; }
+    .product-rating span { color: var(--text-muted); }
+    .product-info h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700; font-size: 0.98rem;
+      color: var(--text-dark); margin-bottom: 4px;
+    }
+    .product-weight { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 10px; }
+    .product-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .product-price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.15rem; font-weight: 800; color: var(--green-bright);
+      display: flex; align-items: baseline;
+    }
+    .product-price .orig {
+      font-size: 0.8rem; color: var(--text-muted);
+      font-weight: 400; text-decoration: line-through; margin-left: 6px;
+    }
+    .qty-controls { display: flex; align-items: center; gap: 6px; }
+    .qty-btn {
+      width: 30px; height: 30px; border-radius: 50%;
+      border: 1.5px solid var(--green-pale);
+      background: rgba(255,255,255,0.9);
+      cursor: pointer;
+      font-size: 0.9rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green-bright);
+      transition: var(--transition-bounce);
+    }
+    .qty-btn:hover {
+      background: var(--green-bright);
+      border-color: var(--green-bright);
+      color: #fff;
+      transform: scale(1.1);
+    }
+    .qty-num { font-weight: 700; font-size: 0.9rem; min-width: 20px; text-align: center; }
+    .add-cart-full {
+      width: 100%; margin-top: 12px;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: #fff; border: none;
+      padding: 11px; border-radius: 999px;
+      font-weight: 600; font-size: 0.9rem; cursor: pointer;
+      transition: var(--transition-bounce);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      box-shadow: 0 4px 14px rgba(46,125,50,0.3);
+      position: relative; overflow: hidden;
+    }
+    .add-cart-full:hover {
+      background: linear-gradient(135deg, var(--green-dark), var(--green-bright));
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 28px rgba(46,125,50,0.45);
+    }
+    .add-cart-full:active { transform: translateY(-1px) scale(1.01); }
+
+    .add-to-cart-btn {
+      background: linear-gradient(135deg, var(--green-pale), rgba(138,227,124,0.25));
+      color: var(--green-bright); border: none;
+      width: 38px; height: 38px; border-radius: 50%;
+      cursor: pointer; font-size: 1.05rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: var(--transition-bounce);
+      position: relative; overflow: hidden;
+    }
+    .add-to-cart-btn::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .add-to-cart-btn i { position: relative; z-index: 1; transition: var(--transition); }
+    .add-to-cart-btn:hover::before { opacity: 1; }
+    .add-to-cart-btn:hover {
+      color: white;
+      transform: scale(1.15) rotate(90deg);
+      box-shadow: 0 4px 16px rgba(46,125,50,0.4);
+    }
+    .add-to-cart-btn:hover i { transform: rotate(-90deg); }
+
+    .market-ref {
+      background: linear-gradient(135deg, #fff8e1, #fff3cd);
+      border: 1px dashed #f9a825;
+      border-radius: 12px;
+      padding: 8px 12px;
+      margin: 8px 0 8px;
+      font-size: 0.72rem;
+      color: #5d4037;
+    }
+    .market-ref-title {
+      font-weight: 700;
+      color: #e65100;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+    }
+    .market-ref-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+    .market-ref-row:last-child { margin-bottom: 0; }
+    .market-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+    .logo-blinkit { color: #1a9e3f; }
+    .logo-zepto { color: #7c3aed; }
+    .market-price-val {
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: #c62828;
+      text-decoration: line-through;
+      opacity: 0.85;
+    }
+    .market-save-tag {
+      background: linear-gradient(135deg, #2e7d32, #4caf50);
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(46,125,50,0.3);
+    }
+    .per-kg-note {
+      font-size: 0.65rem;
+      color: #8aa08b;
+      font-style: italic;
+      margin-top: 3px;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: linear-gradient(135deg, rgba(10,46,15,0.98), rgba(16,50,20,0.97));
+      backdrop-filter: blur(10px);
+      color: rgba(255,255,255,0.8);
+      padding: 64px 5% 28px;
+      position: relative; overflow: hidden;
+    }
+    .footer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(138,227,124,0.5), transparent);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+    .footer-brand .logo {
+      font-family: 'Outfit', sans-serif; font-size: 1.7rem; font-weight: 800;
+      color: white; margin-bottom: 14px; letter-spacing: -0.02em;
+    }
+    .footer-brand .logo .accent { color: var(--green-mint); }
+    .footer-brand p { font-size: 0.88rem; line-height: 1.8; margin-bottom: 22px; color: rgba(255,255,255,0.6); }
+    .footer-social { display: flex; gap: 10px; }
+    .social-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem; transition: var(--transition-bounce);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .social-icon:hover {
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: white; transform: translateY(-4px) scale(1.1);
+      border-color: var(--green-mint);
+      box-shadow: 0 8px 20px rgba(46,125,50,0.4);
+    }
+    .footer-col h5 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: white; margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; display: grid; gap: 11px; }
+    .footer-col ul a {
+      font-size: 0.88rem; color: rgba(255,255,255,0.55);
+      transition: var(--transition);
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .footer-col ul a::before {
+      content: '→'; opacity: 0; transform: translateX(-6px);
+      transition: var(--transition);
+    }
+    .footer-col ul a:hover {
+      color: var(--green-mint); transform: translateX(6px);
+    }
+    .footer-col ul a:hover::before { opacity: 1; transform: translateX(0); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px; display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 14px;
+      font-size: 0.84rem; color: rgba(255,255,255,0.4);
+    }
+
+    /* ===== TOAST ===== */
+    .toast {
+      position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+      background: rgba(13,31,14,0.96);
+      backdrop-filter: blur(16px) saturate(180%);
+      color: white; padding: 16px 24px;
+      border-radius: 20px; box-shadow: var(--shadow-xl);
+      display: flex; align-items: center; gap: 12px; font-size: 0.92rem;
+      transform: translateX(130%);
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+      border: 1px solid rgba(138,227,124,0.2);
+    }
+    .toast.show { transform: translateX(0); }
+    .toast-icon-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-mint));
+      display: flex; align-items: center; justify-content: center;
+      animation: checkPop 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+    }
+    .toast-icon-check i { color: white; font-size: 0.85rem; }
+    @keyframes checkPop { 0% { transform: scale(0) rotate(-180deg); } 100% { transform: scale(1) rotate(0); } }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .products-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-hero { grid-template-columns: 1fr; padding: 40px 5%; }
+      .page-hero-img { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .products-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .nav-links { display: none; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .toast { left: 16px; right: 16px; bottom: 20px; }
+    }
+
+    /* ===== SHOP LAYOUT ===== */
+    .shop-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      padding: 28px 5% 60px;
+      position: relative;
+      z-index: 2;
+    }
+    .filter-sidebar {
+      position: sticky;
+      top: 92px;
+      align-self: flex-start;
+      max-height: calc(100vh - 100px);
+      overflow-y: auto;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(138,227,124,0.18);
+    }
+    .filter-sidebar::-webkit-scrollbar { width: 6px; }
+    .filter-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .filter-sidebar::-webkit-scrollbar-thumb { background: var(--green-pale); border-radius: 999px; }
+    .sidebar-section { margin-bottom: 26px; padding-bottom: 22px; border-bottom: 1px solid var(--green-pale); }
+    .sidebar-section:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .sidebar-section h4 {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sidebar-section h4 i { color: var(--green-bright); }
+
+    /* Price Range */
+    .price-range-display {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .price-range-display span {
+      background: var(--green-pale);
+      color: var(--green-bright);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .price-slider-wrap { position: relative; }
+    .price-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green-bright) 0%, var(--green-bright) 50%, var(--green-pale) 50%, var(--green-pale) 100%);
+      outline: none;
+    }
+    .price-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      cursor: pointer;
+      border: 3px solid white;
+      box-shadow: 0 3px 10px rgba(46,125,50,0.4);
+      transition: var(--transition-bounce);
+    }
+    .price-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+    .price-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      cursor: pointer;
+      border: 3px solid white;
+      box-shadow: 0 3px 10px rgba(46,125,50,0.4);
+    }
+
+    /* Checkbox Filters */
+    .checkbox-list { display: grid; gap: 11px; }
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 500;
+      padding: 6px 2px;
+      transition: var(--transition);
+      border-radius: 8px;
+    }
+    .checkbox-item:hover { color: var(--green-bright); padding-left: 6px; }
+    .checkbox-item input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--green-pale);
+      border-radius: 6px;
+      cursor: pointer;
+      position: relative;
+      background: white;
+      transition: var(--transition);
+    }
+    .checkbox-item input[type="checkbox"]:checked {
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      border-color: var(--green-bright);
+    }
+    .checkbox-item input[type="checkbox"]:checked::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      color: white;
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+    .checkbox-item .count {
+      margin-left: auto;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: var(--green-bg);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    /* Rating Filter */
+    .rating-filter-wrap { display: grid; gap: 10px; }
+    .rating-option {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1.5px solid transparent;
+      background: var(--green-bg);
+    }
+    .rating-option:hover { background: var(--green-pale); }
+    .rating-option.active {
+      background: linear-gradient(135deg, rgba(46,125,50,0.1), rgba(76,175,80,0.1));
+      border-color: var(--green-bright);
+    }
+    .rating-stars { color: #f59e0b; font-size: 0.95rem; letter-spacing: 1px; }
+    .rating-option span:last-child {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Shop Main */
+    .shop-main { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+
+    /* Sort Bar */
+    .sort-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px) saturate(180%);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(138,227,124,0.18);
+    }
+    .sort-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .items-count {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+    }
+    .items-count span { color: var(--green-bright); }
+    .sort-options {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .sort-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1.5px solid transparent;
+      background: var(--green-bg);
+      color: var(--text-mid);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-bounce);
+    }
+    .sort-btn:hover { background: var(--green-pale); }
+    .sort-btn.active {
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 12px rgba(46,125,50,0.3);
+    }
+    .view-toggle {
+      display: flex;
+      align-items: center;
+      background: var(--green-bg);
+      border-radius: 999px;
+      padding: 4px;
+      gap: 2px;
+    }
+    .view-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      cursor: pointer;
+      transition: var(--transition-bounce);
+    }
+    .view-btn.active {
+      background: white;
+      color: var(--green-bright);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .view-btn:hover:not(.active) { color: var(--green-bright); }
+
+    /* Mobile Filter Toggle */
+    .mobile-filter-toggle {
+      display: none;
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: linear-gradient(135deg, var(--green-bright), var(--green-light));
+      color: white;
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 30px rgba(46,125,50,0.5);
+      border: none;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .products-grid.list-view {
+      grid-template-columns: 1fr;
+    }
+    .products-grid.list-view .product-card {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+    }
+    .products-grid.list-view .product-img-wrap {
+      height: 100%;
+      min-height: 180px;
+    }
+
+    @media (max-width: 1100px) {
+      .shop-layout { grid-template-columns: 240px 1fr; gap: 20px; }
+    }
+    @media (max-width: 900px) {
+      .shop-layout { grid-template-columns: 1fr; }
+      .filter-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 320px;
+        max-width: 85vw;
+        max-height: 100vh;
+        height: 100vh;
+        border-radius: 0;
+        z-index: 2000;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        padding: 24px;
+      }
+      .filter-sidebar.open { transform: translateX(0); }
+      .filter-sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 1999;
+        backdrop-filter: blur(4px);
+      }
+      .filter-sidebar-overlay.show { display: block; }
+      .mobile-filter-toggle { display: inline-flex; }
+      .mobile-filter-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--green-bg);
+        border: none;
+        cursor: pointer;
+        color: var(--text-mid);
+        font-size: 1rem;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      .filter-sidebar .mobile-filter-close { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .sort-bar { padding: 14px; }
+      .sort-left { gap: 12px; }
+      .items-count { font-size: 0.88rem; }
+      .sort-btn { padding: 7px 11px; font-size: 0.75rem; }
+      .products-grid.list-view .product-card { grid-template-columns: 1fr; }
+      .products-grid.list-view .product-img-wrap { min-height: 180px; }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+      .cursor-trail { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div class="preloader" id="preloader">
+  <div class="loader-wrap">
+    <div class="loader-logo"><span class="accent">F&S</span> Fresh &amp; Safe</div>
+    <div class="loader-bar"><div class="loader-progress"></div></div>
+  </div>
+</div>
+
+<!-- CURSOR TRAILS -->
+<div class="cursor-trail ghost" id="cursorGhost"></div>
+<div class="cursor-trail" id="cursorDot"></div>
+
+<!-- PARTICLE CANVAS -->
+<canvas id="particlesCanvas"></canvas>
+
+<!-- FLOATING ORBS -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- FLOATING BUBBLES CONTAINER -->
+<div id="bubblesContainer" style="position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;"></div>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><span class="accent">F&S</span> Fresh &amp; Safe</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="fruits.html">Fruits</a>
+      <a href="cut vegetables.html">Cut Veggies</a><a href="vegetables.html" class="active">Vegetables</a><a href="about.html">About</a>
+    </div>
+    <div class="nav-right">
+      <div id="navAccount"></div>
+      <a href="cart.html" class="cart-btn magnetic ripple-container" id="cartNavBtn">
+        <i class="fa fa-shopping-basket"></i> Cart
+        <span class="cart-badge" id="cartCount">0</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero reveal">
+  <div>
+    <h1>Fresh <span class="grad-text">Vegetables</span> 🥦</h1>
+    <p>Farm-fresh leafy greens, roots, gourds and exotic vegetables — harvested daily and delivered to your doorstep.</p>
+  </div>
+  <img class="page-hero-img" src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=300&h=300&fit=crop&auto=format" alt="Fresh vegetables">
+</div>
+
+<div class="filter-bar reveal">
+  <button class="filter-btn magnetic ripple-container active" onclick="filterProducts('all',this)">All Vegetables</button>
+  <button class="filter-btn magnetic ripple-container" onclick="filterProducts('leafy',this)">🥬 Leafy Greens</button>
+  <button class="filter-btn magnetic ripple-container" onclick="filterProducts('root',this)">🥕 Root Veg</button>
+  <button class="filter-btn magnetic ripple-container" onclick="filterProducts('exotic',this)">🥦 Exotic</button>
+  <button class="filter-btn magnetic ripple-container" onclick="filterProducts('everyday',this)">🍅 Everyday</button>
+</div>
+
+<section class="shop-section">
+  <div class="products-grid reveal-stagger">
+
+    <div class="product-card" data-cat="everyday">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&h=260&fit=crop&auto=format" alt="Red Tomatoes">
+        <span class="product-badge badge-hot">Daily Fresh</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★★ <span>(389)</span></div>
+        <h4>Red Tomatoes</h4>
+        <p class="product-weight">1 kg · Firm &amp; Ripe</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹55/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹58/kg</span><span class="market-save-tag">Save ₹9</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹49 <span class="orig">₹65</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Red Tomatoes','1 kg',49,'https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="leafy">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=260&fit=crop&auto=format" alt="Baby Spinach">
+        <span class="product-badge badge-organic">Organic</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★★ <span>(156)</span></div>
+        <h4>Baby Spinach</h4>
+        <p class="product-weight">250 gm · Pre-Washed</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹210/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹220/kg</span><span class="market-save-tag">Save ₹14</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹49 <span class="orig">₹65</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Baby Spinach','250 gm',49,'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="exotic">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1459411552884-841e9c92d048?w=400&h=260&fit=crop&auto=format" alt="Broccoli">
+        <span class="product-badge badge-new">Premium</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★☆ <span>(98)</span></div>
+        <h4>Fresh Broccoli</h4>
+        <p class="product-weight">500 gm head</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹200/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹210/kg</span><span class="market-save-tag">Save ₹22</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹89 <span class="orig">₹110</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Broccoli','500 gm',89,'https://images.unsplash.com/photo-1459411552884-841e9c92d048?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="root">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=260&fit=crop&auto=format" alt="Carrots">
+        <span class="product-badge badge-sale">25% Off</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★★ <span>(204)</span></div>
+        <h4>Fresh Carrots</h4>
+        <p class="product-weight">500 gm · Sweet variety</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹90/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹95/kg</span><span class="market-save-tag">Save ₹17</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹39 <span class="orig">₹52</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Carrots','500 gm',39,'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="everyday">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1590005354167-6da97870c757?w=400&h=260&fit=crop&auto=format" alt="Capsicum">
+        <span class="product-badge badge-hot">Mixed Pack</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★☆ <span>(143)</span></div>
+        <h4>Capsicum (Mixed)</h4>
+        <p class="product-weight">500 gm · Red, Green, Yellow</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹180/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹190/kg</span><span class="market-save-tag">Save ₹22</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹79 <span class="orig">₹99</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Capsicum Mixed','500 gm',79,'https://images.unsplash.com/photo-1590005354167-6da97870c757?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="everyday">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1508747703725-719777637510?w=400&h=260&fit=crop&auto=format" alt="Onion">
+        <span class="product-badge badge-organic">Farm Grade A</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★☆ <span>(287)</span></div>
+        <h4>Red Onion</h4>
+        <p class="product-weight">1 kg · Nashik Origin</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹52/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹55/kg</span><span class="market-save-tag">Save ₹17</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹35 <span class="orig">₹50</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Red Onion','1 kg',35,'https://images.unsplash.com/photo-1508747703725-719777637510?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="root">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1591814028651-b55e60bd664b?w=400&h=260&fit=crop&auto=format" alt="Potato">
+        <span class="product-badge badge-hot">Best Value</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★☆ <span>(412)</span></div>
+        <h4>Aloo (Potato)</h4>
+        <p class="product-weight">2 kg · Clean &amp; Sorted</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹40/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹42/kg</span><span class="market-save-tag">Save ₹11</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹59 <span class="orig">₹75</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Aloo (Potato)','2 kg',59,'https://images.unsplash.com/photo-1591814028651-b55e60bd664b?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="everyday">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=400&h=260&fit=crop&auto=format" alt="Cucumber">
+        <span class="product-badge badge-new">Crisp Fresh</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★★ <span>(167)</span></div>
+        <h4>English Cucumber</h4>
+        <p class="product-weight">500 gm · 2–3 pieces</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹90/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹95/kg</span><span class="market-save-tag">Save ₹17</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹39 <span class="orig">₹55</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'English Cucumber','500 gm',39,'https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="exotic">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1568584711271-6c929fb49b60?w=400&h=260&fit=crop&auto=format" alt="Cauliflower">
+        <span class="product-badge badge-organic">White &amp; Fresh</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★☆ <span>(118)</span></div>
+        <h4>Cauliflower (Phool Gobi)</h4>
+        <p class="product-weight">1 head (~600 gm)</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹90/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹95/kg</span><span class="market-save-tag">Save ₹13</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹49 <span class="orig">₹65</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Cauliflower','1 head',49,'https://images.unsplash.com/photo-1568584711271-6c929fb49b60?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="exotic">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400&h=260&fit=crop&auto=format" alt="Green Beans">
+        <span class="product-badge badge-sale">20% Off</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★★ <span>(93)</span></div>
+        <h4>French Beans</h4>
+        <p class="product-weight">250 gm · Pre-trimmed</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹220/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹230/kg</span><span class="market-save-tag">Save ₹26</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹49 <span class="orig">₹60</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'French Beans','250 gm',49,'https://images.unsplash.com/photo-1447175008436-054170c2e979?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="leafy">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1543362906-acfc16c67564?w=400&h=260&fit=crop&auto=format" alt="Coriander">
+        <span class="product-badge badge-organic">Aromatic</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★★ <span>(324)</span></div>
+        <h4>Fresh Coriander</h4>
+        <p class="product-weight">100 gm bunch</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹180/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹190/kg</span><span class="market-save-tag">Save ₹40</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹15 <span class="orig">₹25</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Coriander','100 gm',15,'https://images.unsplash.com/photo-1543362906-acfc16c67564?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="product-card" data-cat="everyday">
+      <div class="product-img-wrap">
+        <img src="https://images.unsplash.com/photo-1608500218890-c4f9d994edfc?w=400&h=260&fit=crop&auto=format" alt="Green Chilli">
+        <span class="product-badge badge-hot">🌶️ Spicy Fresh</span>
+        <button class="product-wishlist"><i class="fa fa-heart"></i></button>
+      </div>
+      <div class="product-info">
+        <div class="product-rating">★★★★☆ <span>(211)</span></div>
+        <h4>Green Chilli</h4>
+        <p class="product-weight">200 gm</p>
+        <div class="market-ref">
+          <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹120/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹125/kg</span><span class="market-save-tag">Save ₹30</span></div>
+          <div class="per-kg-note">*Avg. market reference price</div>
+        </div>
+        <div class="product-bottom">
+          <div class="product-price">₹19 <span class="orig">₹30</span></div>
+          <div class="qty-controls"><button class="qty-btn" onclick="changeQty(this,-1)">−</button><span class="qty-num">1</span><button class="qty-btn" onclick="changeQty(this,1)">+</button></div>
+        </div>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Green Chilli','200 gm',19,'https://images.unsplash.com/photo-1608500218890-c4f9d994edfc?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><span class="accent">F&S</span> Fresh &amp; Safe</div>
+      <p>Bringing the goodness of farms directly to your table. Every product we deliver is sourced from verified partner farms with full traceability. Experience the next generation of fresh grocery shopping.</p>
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="fruits.html">Fresh Fruits</a></li>
+        <li><a href="vegetables.html">Vegetables</a></li>
+        <li><a href="cut vegetables.html">Cut Vegetables</a></li>
+        <li><a href="cart.html">My Cart</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="#">Our Farms</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Fresh &amp; Safe. All rights reserved.</span>
+    <span>Made with ❤️ for healthier families</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <div class="toast-icon-check"><i class="fa fa-check"></i></div>
+  <span id="toastMsg">Added!</span>
+</div>
+
+<script>
+  // ========== PRELOADER ==========
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const pre = document.getElementById('preloader');
+      if (pre) pre.classList.add('hidden');
+    }, 2200);
+  });
+
+  // ========== PARTICLE CANVAS SYSTEM ==========
+  (function() {
+    const canvas = document.getElementById('particlesCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    const particleCount = window.innerWidth < 768 ? 35 : 70;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(true); }
+      reset(initial = false) {
+        this.x = Math.random() * canvas.width;
+        this.y = initial ? Math.random() * canvas.height : canvas.height + 20;
+        this.size = Math.random() * 3 + 1;
+        this.speedY = -(Math.random() * 0.5 + 0.2);
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.5 + 0.15;
+        this.hue = 120 + Math.random() * 30;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.opacity -= 0.0003;
+        if (this.y < -20 || this.opacity <= 0) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${this.hue}, 70%, 60%, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => { p.update(); p.draw(); });
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // ========== FLOATING BUBBLES ==========
+  (function() {
+    const container = document.getElementById('bubblesContainer');
+    if (!container) return;
+    const count = 12;
+    for (let i = 0; i < count; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      const size = Math.random() * 40 + 10;
+      b.style.width = size + 'px';
+      b.style.height = size + 'px';
+      b.style.left = Math.random() * 100 + '%';
+      b.style.animationDuration = (Math.random() * 20 + 15) + 's';
+      b.style.animationDelay = -(Math.random() * 25) + 's';
+      container.appendChild(b);
+    }
+  })();
+
+  // ========== CUSTOM CURSOR TRAIL ==========
+  (function() {
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (isTouch) return;
+
+    const ghost = document.getElementById('cursorGhost');
+    const dot = document.getElementById('cursorDot');
+    if (!ghost || !dot) return;
+    let mouseX = 0, mouseY = 0;
+    let ghostX = 0, ghostY = 0;
+
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      dot.style.left = mouseX + 'px';
+      dot.style.top = mouseY + 'px';
+    });
+
+    function animateCursor() {
+      ghostX += (mouseX - ghostX) * 0.12;
+      ghostY += (mouseY - ghostY) * 0.12;
+      ghost.style.left = ghostX + 'px';
+      ghost.style.top = ghostY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    document.querySelectorAll('a, button, .product-card, .filter-btn, input').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ghost.style.transform = 'translate(-50%, -50%) scale(1.8)';
+        ghost.style.background = 'radial-gradient(circle, rgba(46,125,50,0.3), rgba(46,125,50,0))';
+      });
+      el.addEventListener('mouseleave', () => {
+        ghost.style.transform = 'translate(-50%, -50%) scale(1)';
+        ghost.style.background = 'radial-gradient(circle, rgba(138,227,124,0.25), rgba(138,227,124,0))';
+      });
+    });
+  })();
+
+  // ========== NAVBAR SCROLL EFFECT ==========
+  (function() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+    function onScroll() {
+      if (window.scrollY > 40) navbar.classList.add('scrolled');
+      else navbar.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+  })();
+
+  // ========== SCROLL REVEAL ANIMATIONS ==========
+  (function() {
+    const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (!revealEls.length) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  })();
+
+  // ========== MAGNETIC BUTTON EFFECT ==========
+  (function() {
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (isTouch) return;
+
+    document.querySelectorAll('.magnetic').forEach(el => {
+      el.addEventListener('mousemove', e => {
+        const rect = el.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const strength = 0.25;
+        el.style.transform = `translate(${x * strength}px, ${y * strength}px)`;
+      });
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  })();
+
+  // ========== PRODUCT CARD 3D TILT ==========
+  (function() {
+    const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+    if (isTouch) return;
+
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform = `translateY(-10px) rotateX(${-y * 5}deg) rotateY(${x * 5}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  // ========== RIPPLE EFFECT ==========
+  function createRipple(e, el) {
+    const rect = el.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    const size = Math.max(rect.width, rect.height);
+    ripple.className = 'ripple';
+    ripple.style.width = ripple.style.height = size + 'px';
+    ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+    ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+    el.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+  }
+  document.querySelectorAll('.ripple-container').forEach(el => {
+    el.addEventListener('click', e => createRipple(e, el));
+  });
+
+  // ========== CART BOUNCE ANIMATION ==========
+  const styleEl = document.createElement('style');
+  styleEl.textContent = `@keyframes cartBounce { 0%,100%{transform:scale(1)} 30%{transform:scale(1.1) translateY(-4px)} 60%{transform:scale(0.95)} }`;
+  document.head.appendChild(styleEl);
+
+  function animateCartNav() {
+    const btn = document.getElementById('cartNavBtn');
+    if (!btn) return;
+    btn.style.animation = 'none';
+    btn.offsetHeight;
+    btn.style.animation = 'cartBounce 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+  }
+
+  // ========== ORB PARALLAX SCROLL ==========
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    document.querySelectorAll('.orb').forEach((orb, i) => {
+      const depth = 0.08 * (i + 1);
+      orb.style.transform = `translateY(${y * depth}px)`;
+    });
+  });
+
+  // ========== EXISTING FUNCTIONS (PRESERVED) ==========
+  function getCart(){return JSON.parse(localStorage.getItem('fs_cart')||'[]')}
+  function saveCart(c){localStorage.setItem('fs_cart',JSON.stringify(c))}
+  function updateBadge(){
+    const badge = document.getElementById('cartCount');
+    if (badge) {
+      badge.textContent = getCart().reduce((s,i)=>s+i.qty,0);
+      badge.style.animation = 'none';
+      badge.offsetHeight;
+      badge.style.animation = '';
+    }
+  }
+  function showToast(m){
+    const t=document.getElementById('toast');
+    if (!t) return;
+    document.getElementById('toastMsg').textContent=m;
+    t.classList.remove('show');
+    t.offsetHeight;
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2800);
+  }
+  function changeQty(btn,delta){
+    const n=btn.parentElement.querySelector('.qty-num');
+    let v=parseInt(n.textContent)+delta;
+    n.textContent=Math.max(1,v);
+  }
+  function addToCartFromCard(btn,name,weight,price,img){
+    const qty=parseInt(btn.closest('.product-card').querySelector('.qty-num').textContent);
+    const cart=getCart();const idx=cart.findIndex(i=>i.name===name);
+    if(idx>-1){cart[idx].qty+=qty}else{cart.push({name,weight,price,img,qty})}
+    saveCart(cart);updateBadge();showToast('🛒 '+name+' ×'+qty+' added!');
+    animateCartNav();
+    btn.innerHTML='<i class="fa fa-check"></i> Added!';btn.style.background='#1b5e20';
+    setTimeout(()=>{btn.innerHTML='<i class="fa fa-cart-plus"></i> Add to Cart';btn.style.background=''},2000)
+  }
+  function filterProducts(cat,btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+    document.querySelectorAll('.product-card').forEach(c=>{c.classList.toggle('hidden',cat!=='all'&&c.dataset.cat!==cat)})
+  }
+  updateBadge();
+</script>
+</body>
+</html>
