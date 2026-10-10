@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fresh Fruits – Fresh & Safe | Premium Fruits Delivered Same Day</title>
-  <meta name="description" content="Shop premium fresh fruits online at Fresh & Safe. Mangoes, strawberries, grapes, papaya and more — same day delivery available.">
+  <title>Fresh Fruits – Fresh &amp; Safe | Delivered in Minutes</title>
+  <meta name="description" content="Order fresh fruits online — mangoes, berries, citrus and more. Blinkit-style express delivery from Fresh &amp; Safe.">
+  <link rel="stylesheet" href="css/express-store.css">
+  <link rel="stylesheet" href="css/products-client.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="js/product-images.js"></script>
   <script src="js/app.js"></script>
   <style>
     :root {
@@ -635,7 +638,6 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="fruits.html" class="active">Fruits</a>
-      <a href="cut vegetables.html">Cut Veggies</a>
       <a href="vegetables.html">Vegetables</a>
       <a href="about.html">About</a>
     </div>
@@ -648,6 +650,7 @@
     </div>
   </div>
 </nav>
+<div class="express-strip"><strong>⚡ 10-minute delivery</strong> <span>· Fresh fruits · Best price vs Blinkit &amp; Zepto</span></div>
 
 <!-- PAGE HERO -->
 <div class="page-hero reveal">
@@ -656,7 +659,7 @@
     <p>Hand-picked tropical, citrus and seasonal fruits from verified farms. Juicy, sweet and delivered same-day.</p>
   </div>
   <div class="page-hero-img-wrap reveal-scale">
-    <img class="page-hero-img" src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=300&h=300&fit=crop&auto=format" alt="Fresh fruits assortment">
+    <img class="page-hero-img" src="assets/products/photo-1519996529931-28324d5a630e.jpg" alt="Fresh fruits assortment">
   </div>
 </div>
 
@@ -675,7 +678,7 @@
 
     <div class="product-card" data-cat="tropical">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=260&fit=crop&auto=format" alt="Alphonso Mango">
+        <img src="assets/products/photo-1553279768-865429fa0078.jpg" alt="Alphonso Mango">
         <span class="product-badge badge-hot">🔥 Best Seller</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -697,13 +700,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Alphonso Mango','1 kg',199,'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Alphonso Mango','1 kg',199,'assets/products/photo-1553279768-865429fa0078.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="berries">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=260&fit=crop&auto=format" alt="Fresh Strawberries">
+        <img src="assets/products/photo-1464965911861-746a04b4bca6.jpg" alt="Fresh Strawberries">
         <span class="product-badge badge-new">New Arrival</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -725,13 +728,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Strawberries','500 gm',149,'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Strawberries','500 gm',149,'assets/products/photo-1464965911861-746a04b4bca6.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="tropical">
       <div class="product-img-wrap">
-        <!-- <img src="https://images.unsplash.com/photo-1506872132052-c96df8220b72?w=400&h=260&fit=crop&auto=format" alt="Fresh Papaya"> -->
+        <img src="assets/products/photo-1553279768-865429fa0078.jpg" alt="Fresh Papaya" loading="lazy" decoding="async">
         <span class="product-badge badge-organic">Organic</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -753,13 +756,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Papaya','1 piece',69,'https://images.unsplash.com/photo-1506872132052-c96df8220b72?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Papaya','1 piece',69,'assets/products/photo-1506872132052-c96df8220b72.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="citrus">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=260&fit=crop&auto=format" alt="Navel Oranges">
+        <img src="assets/products/photo-1547514701-42782101795e.jpg" alt="Navel Oranges">
         <span class="product-badge badge-sale">25% Off</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -781,13 +784,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Navel Oranges','1 kg',89,'https://images.unsplash.com/photo-1547514701-42782101795e?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Navel Oranges','1 kg',89,'assets/products/photo-1547514701-42782101795e.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="berries">
       <div class="product-img-wrap">
-        <!-- <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=260&fit=crop&auto=format" alt="Fresh Grapes"> -->
+        <img src="assets/products/photo-1486297678162-eb2a19b0a32d.jpg" alt="Fresh Grapes" loading="lazy" decoding="async">
         <span class="product-badge badge-hot">Popular</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -809,13 +812,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Green Grapes','500 gm',79,'https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Green Grapes','500 gm',79,'assets/products/photo-1486297678162-eb2a19b0a32d.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="tropical">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&h=260&fit=crop&auto=format" alt="Fresh Pineapple">
+        <img src="assets/products/photo-1550258987-190a2d41a8ba.jpg" alt="Fresh Pineapple">
         <span class="product-badge badge-organic">Farm Fresh</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -837,13 +840,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Pineapple','1 piece',59,'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Pineapple','1 piece',59,'assets/products/photo-1550258987-190a2d41a8ba.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="seasonal">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=260&fit=crop&auto=format" alt="Red Apple">
+        <img src="assets/products/photo-1567306226416-28f0efdc88ce.jpg" alt="Red Apple">
         <span class="product-badge badge-new">Seasonal</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -865,13 +868,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Kashmiri Red Apple','1 kg',179,'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Kashmiri Red Apple','1 kg',179,'assets/products/photo-1567306226416-28f0efdc88ce.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="tropical">
       <div class="product-img-wrap">
-        <!-- <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?w=400&h=260&fit=crop&auto=format" alt="Watermelon"> -->
+        <img src="assets/products/photo-1528825871115-3581a5387919.jpg" alt="Watermelon" loading="lazy" decoding="async">
         <span class="product-badge badge-hot">Summer Hit</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -893,13 +896,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Sweet Watermelon','2-3 kg',99,'https://images.unsplash.com/photo-1528825871115-3581a5387919?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Sweet Watermelon','2-3 kg',99,'assets/products/photo-1528825871115-3581a5387919.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="seasonal">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1574226516831-e1dff420e562?w=400&h=260&fit=crop&auto=format" alt="Banana">
+        <img src="assets/products/photo-1574226516831-e1dff420e562.jpg" alt="Banana">
         <span class="product-badge badge-organic">Organic</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -921,13 +924,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Robusta Banana','1 dozen',45,'https://images.unsplash.com/photo-1574226516831-e1dff420e562?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Robusta Banana','1 dozen',45,'assets/products/photo-1574226516831-e1dff420e562.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="citrus">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=400&h=260&fit=crop&auto=format" alt="Mosambi">
+        <img src="assets/products/photo-1582979512210-99b6a53386f9.jpg" alt="Mosambi">
         <span class="product-badge badge-sale">20% Off</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -949,13 +952,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Mosambi','1 kg',69,'https://images.unsplash.com/photo-1582979512210-99b6a53386f9?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Mosambi','1 kg',69,'assets/products/photo-1582979512210-99b6a53386f9.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="tropical">
       <div class="product-img-wrap">
-        <!-- <img src="https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=260&fit=crop&auto=format" alt="Pomegranate"> -->
+        <img src="assets/products/photo-1615485500704-8e990f9900f7.jpg" alt="Pomegranate" loading="lazy" decoding="async">
         <span class="product-badge badge-hot">High Demand</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -977,13 +980,13 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Pomegranate','1 kg',129,'https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Pomegranate','1 kg',129,'assets/products/photo-1615485500704-8e990f9900f7.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
     <div class="product-card" data-cat="citrus">
       <div class="product-img-wrap">
-        <!-- <img src="https://images.unsplash.com/photo-1560707865-ce25ba879151?w=400&h=260&fit=crop&auto=format" alt="Lemon"> -->
+        <img src="assets/products/photo-1547514701-42782101795e.jpg" alt="Fresh Lemons" loading="lazy" decoding="async">
         <span class="product-badge badge-organic">Natural</span>
         <button class="product-wishlist"><i class="fa fa-heart"></i></button>
       </div>
@@ -1005,7 +1008,7 @@
             <button class="qty-btn" onclick="changeQty(this,1)">+</button>
           </div>
         </div>
-        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Lemons','500 gm',39,'https://images.unsplash.com/photo-1560707865-ce25ba879151?w=400&h=260&fit=crop&auto=format')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
+        <button class="add-cart-full magnetic ripple-container" onclick="addToCartFromCard(this,'Fresh Lemons','500 gm',39,'assets/products/photo-1560707865-ce25ba879151.jpg')"><i class="fa fa-cart-plus"></i> Add to Cart</button>
       </div>
     </div>
 
@@ -1030,7 +1033,6 @@
       <ul>
         <li><a href="fruits.html">Fresh Fruits</a></li>
         <li><a href="vegetables.html">Vegetables</a></li>
-        <li><a href="cut vegetables.html">Cut Vegetables</a></li>
         <li><a href="cart.html">My Cart</a></li>
       </ul>
     </div>

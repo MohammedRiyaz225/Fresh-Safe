@@ -1,0 +1,20 @@
+/* Blinkit-style express delivery — fruits & vegetables only */
+.express-strip {
+  background: linear-gradient(90deg, #0a2e0f 0%, #1b5e20 55%, #2e7d32 100%);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 10px 16px;
+  letter-spacing: 0.02em;
+}
+.express-strip strong { color: #8ae37c; font-weight: 700; }
+.express-strip span { opacity: 0.92; }
+.categories-grid.categories-two {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 920px;
+  margin: 0 auto;
+}
+@media (max-width: 640px) {
+  .categories-grid.categories-two { grid-template-columns: 1fr; }
+}

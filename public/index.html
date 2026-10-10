@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fresh & Safe – Next-Gen Farm-Fresh Grocery Experience</title>
-  <meta name="description" content="Fresh & Safe delivers premium farm-fresh fruits, vegetables and cut vegetables straight to your doorstep. Experience the future of grocery shopping.">
+  <title>Fresh & Safe – Fruits &amp; Vegetables Delivered Fast</title>
+  <meta name="description" content="Order farm-fresh fruits and vegetables online — Blinkit-style quick delivery. Fresh &amp; Safe: washed, packed, and at your door in minutes.">
+  <link rel="stylesheet" href="css/express-store.css">
+  <link rel="stylesheet" href="css/products-client.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -1441,6 +1443,7 @@
       .cursor-trail { display: none; }
     }
   </style>
+  <script src="js/product-images.js"></script>
   <script src="js/app.js"></script>
 </head>
 <body>
@@ -1475,7 +1478,6 @@
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="fruits.html">Fruits</a>
-      <a href="cut vegetables.html">Cut Veggies</a>
       <a href="vegetables.html">Vegetables</a>
       <a href="about.html">About</a>
     </div>
@@ -1489,23 +1491,27 @@
   </div>
 </nav>
 
+<div class="express-strip">
+  <strong>⚡ 10-minute delivery</strong> <span>· Fruits &amp; vegetables only · Prices compared with quick-commerce apps</span>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span> Next-Gen Farm-to-Door Experience</div>
+    <div class="hero-badge"><span class="dot"></span> Quick commerce for fresh produce</div>
     <h1>
       <span class="word">Fresh</span> &amp;
       <span class="word grad-text">Safe</span>
       <span class="word">Groceries,</span><br>
       <span class="word">Right At Your Door</span>
     </h1>
-    <p class="hero-desc">Premium fruits and vegetables sourced directly from verified farms, packed with care and delivered the same day. Experience the future of grocery shopping with our next-generation platform.</p>
+    <p class="hero-desc">Like Blinkit, but focused only on what matters most — premium fruits and vegetables from verified farms, sorted, packed hygienically, and delivered to your door in minutes.</p>
     <div class="hero-actions">
       <a href="fruits.html" class="btn-primary magnetic ripple-container"><i class="fa fa-shopping-bag"></i> Shop Fresh Now</a>
       <a href="about.html" class="btn-outline magnetic"><i class="fa fa-leaf"></i> Our Story</a>
     </div>
     <ul class="hero-highlights">
-      <li><i class="fa fa-check-circle"></i> Same-day delivery to 200+ areas</li>
+      <li><i class="fa fa-check-circle"></i> Express delivery in 10–30 minutes</li>
       <li><i class="fa fa-check-circle"></i> 100% traceable farm-fresh produce</li>
       <li><i class="fa fa-check-circle"></i> No preservatives, no cold storage shortcuts</li>
       <li><i class="fa fa-check-circle"></i> Free delivery on orders above ₹499</li>
@@ -1513,24 +1519,24 @@
   </div>
   <div class="hero-visual" id="heroVisual">
     <div class="hero-visual-inner" id="heroVisualInner">
-      <div class="float-badge float-badge-1"><i class="fa fa-bolt"></i><div><strong>4hr</strong><br>Delivery</div></div>
+      <div class="float-badge float-badge-1"><i class="fa fa-bolt"></i><div><strong>10</strong><br>Min Delivery</div></div>
       <div class="float-badge float-badge-2"><i class="fa fa-leaf"></i><div><strong>100%</strong><br>Organic</div></div>
       <div class="slider-wrap-3d">
         <div class="slider-wrap">
           <div class="slide active">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&h=420&fit=crop&auto=format" alt="Fresh vegetables basket">
+            <img src="assets/products/photo-1542838132-92c53300491e.jpg" alt="Fresh vegetables basket">
             <div class="slide-caption"><h3>Farm-Fresh Vegetables</h3><p>Delivered within 4 hours of harvest</p></div>
           </div>
           <div class="slide">
-            <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=700&h=420&fit=crop&auto=format" alt="Tropical fruits assortment">
+            <img src="assets/products/photo-1610348725531-843dff563e2c.jpg" alt="Tropical fruits assortment">
             <div class="slide-caption"><h3>Premium Tropical Fruits</h3><p>Hand-picked for ripeness and taste</p></div>
           </div>
           <div class="slide">
-            <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?w=700&h=420&fit=crop&auto=format" alt="Ready to cook cut vegetables">
-            <div class="slide-caption"><h3>Ready-to-Cook Cuts</h3><p>Pre-cleaned, pre-cut, hygienic packs</p></div>
+            <img src="assets/products/photo-1576045057995-568f588f82fb.jpg" alt="Fresh leafy greens">
+            <div class="slide-caption"><h3>Leafy Greens &amp; Herbs</h3><p>Spinach, coriander and more — farm fresh</p></div>
           </div>
           <div class="slide">
-            <img src="https://images.unsplash.com/photo-1506617564039-2f3b650b7010?w=700&h=420&fit=crop&auto=format" alt="Organic produce delivery">
+            <img src="assets/products/photo-1506617564039-2f3b650b7010.jpg" alt="Organic produce delivery">
             <div class="slide-caption"><h3>Direct From Our Farms</h3><p>100% organic, zero middlemen</p></div>
           </div>
         </div>
@@ -1544,8 +1550,8 @@
 <div class="trust-strip reveal-stagger">
   <div class="trust-card">
     <div class="trust-icon"><i class="fa fa-truck"></i></div>
-    <h4>Same-Day Delivery</h4>
-    <p>Order before 2 PM, get it today</p>
+    <h4>Express Delivery</h4>
+    <p>Fruits &amp; veggies in as fast as 10 minutes</p>
   </div>
   <div class="trust-card">
     <div class="trust-icon"><i class="fa fa-shield-halved"></i></div>
@@ -1569,11 +1575,11 @@
   <div class="section-header reveal">
     <span class="section-tag">Browse Categories</span>
     <h2>What Are You <span class="grad-text">Looking For?</span></h2>
-    <p>From tropical fruits to leafy greens to ready-to-cook cuts — we have everything fresh</p>
+    <p>Two categories, hundreds of picks — everything you need for a healthy kitchen</p>
   </div>
-  <div class="categories-grid reveal-stagger">
+  <div class="categories-grid categories-two reveal-stagger">
     <a href="fruits.html" class="cat-card">
-      <img src="https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=600&h=300&fit=crop&auto=format" alt="Fresh Fruits">
+      <img src="assets/products/photo-1610348725531-843dff563e2c.jpg" alt="Fresh Fruits">
       <div class="cat-overlay">
         <h3>Fresh Fruits</h3>
         <span>24+ varieties available</span>
@@ -1581,18 +1587,10 @@
       </div>
     </a>
     <a href="vegetables.html" class="cat-card">
-      <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=300&fit=crop&auto=format" alt="Fresh Vegetables">
+      <img src="assets/products/photo-1540420773420-3366772f4999.jpg" alt="Fresh Vegetables">
       <div class="cat-overlay">
         <h3>Fresh Vegetables</h3>
         <span>40+ varieties available</span>
-        <span class="shop-link">Shop Now <i class="fa fa-arrow-right"></i></span>
-      </div>
-    </a>
-    <a href="cut vegetables.html" class="cat-card">
-      <img src="https://images.unsplash.com/photo-1591189824344-9f3f09506d8c?w=600&h=300&fit=crop&auto=format" alt="Cut Vegetables">
-      <div class="cat-overlay">
-        <h3>Cut Vegetables</h3>
-        <span>Ready-to-cook packs</span>
         <span class="shop-link">Shop Now <i class="fa fa-arrow-right"></i></span>
       </div>
     </a>
@@ -1609,7 +1607,7 @@
   <div class="products-grid reveal-stagger">
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=250&fit=crop&auto=format" alt="Alphonso Mangoes">
+        <img src="assets/products/photo-1553279768-865429fa0078.jpg" alt="Alphonso Mangoes">
         <span class="product-badge hot">🔥 Hot</span>
       </div>
       <div class="product-info">
@@ -1624,13 +1622,13 @@
         </div>
         <div class="product-bottom">
           <div class="product-price">₹199 <span class="orig">₹260</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Alphonso Mango','1 kg box',199,'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Alphonso Mango','1 kg box',199,'assets/products/photo-1553279768-865429fa0078.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400&h=250&fit=crop&auto=format" alt="Baby Spinach">
+        <img src="assets/products/photo-1601004890684-d8cbf643f5f2.jpg" alt="Baby Spinach">
         <span class="product-badge">Organic</span>
       </div>
       <div class="product-info">
@@ -1645,13 +1643,13 @@
         </div>
         <div class="product-bottom">
           <div class="product-price">₹49 <span class="orig">₹65</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Baby Spinach','250 gm pack',49,'https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Baby Spinach','250 gm pack',49,'assets/products/photo-1601004890684-d8cbf643f5f2.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&h=250&fit=crop&auto=format" alt="Strawberries">
+        <img src="assets/products/photo-1550258987-190a2d41a8ba.jpg" alt="Strawberries">
         <span class="product-badge new">New</span>
       </div>
       <div class="product-info">
@@ -1666,28 +1664,28 @@
         </div>
         <div class="product-bottom">
           <div class="product-price">₹149 <span class="orig">₹199</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Strawberries','500 gm punnet',149,'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Strawberries','500 gm punnet',149,'assets/products/photo-1550258987-190a2d41a8ba.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=400&h=250&fit=crop&auto=format" alt="Biryani Cut Mix">
+        <img src="assets/products/photo-1546094096-0df4bcaaa337.jpg" alt="Red Tomatoes">
         <span class="product-badge">Popular</span>
       </div>
       <div class="product-info">
         <div class="product-rating">★★★★★ <span>(203)</span></div>
-        <h4>Biryani Veg Mix</h4>
-        <p class="product-weight">500 gm ready-cut</p>
+        <h4>Red Tomatoes</h4>
+        <p class="product-weight">1 kg</p>
         <div class="market-ref">
           <div class="market-ref-title">💰 Market Price (per 1 kg)</div>
-          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹220/kg</span></div>
-          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹230/kg</span><span class="market-save-tag">Save ₹26</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-blinkit">🟡 Blinkit</span><span class="market-price-val">₹55/kg</span></div>
+          <div class="market-ref-row"><span class="market-logo logo-zepto">🟣 Zepto</span><span class="market-price-val">₹58/kg</span><span class="market-save-tag">Save ₹6</span></div>
           <div class="per-kg-note">*Avg. market reference price</div>
         </div>
         <div class="product-bottom">
-          <div class="product-price">₹89 <span class="orig">₹120</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Biryani Veg Mix','500 gm ready-cut',89,'https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <div class="product-price">₹49 <span class="orig">₹65</span></div>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Red Tomatoes','1 kg',49,'assets/products/photo-1546094096-0df4bcaaa337.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
@@ -1704,7 +1702,7 @@
   <div class="products-grid reveal-stagger">
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=400&h=250&fit=crop&auto=format" alt="Avocados">
+        <img src="assets/products/photo-1587735243615-c03f25aaff15.jpg" alt="Avocados">
         <span class="product-badge ai">🤖 AI Pick</span>
       </div>
       <div class="product-info">
@@ -1713,13 +1711,13 @@
         <p class="product-weight">3 pcs pack</p>
         <div class="product-bottom">
           <div class="product-price">₹299 <span class="orig">₹380</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Hass Avocado','3 pcs pack',299,'https://images.unsplash.com/photo-1587735243615-c03f25aaff15?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Hass Avocado','3 pcs pack',299,'assets/products/photo-1587735243615-c03f25aaff15.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=400&h=250&fit=crop&auto=format" alt="Blueberries">
+        <img src="assets/products/photo-1519996529931-28324d5a630e.jpg" alt="Blueberries">
         <span class="product-badge ai">🤖 AI Pick</span>
       </div>
       <div class="product-info">
@@ -1728,13 +1726,13 @@
         <p class="product-weight">200 gm box</p>
         <div class="product-bottom">
           <div class="product-price">₹249 <span class="orig">₹320</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Blueberries','200 gm box',249,'https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Blueberries','200 gm box',249,'assets/products/photo-1519996529931-28324d5a630e.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1550828520-4cb496926fc9?w=400&h=250&fit=crop&auto=format" alt="Broccoli">
+        <img src="assets/products/photo-1550828520-4cb496926fc9.jpg" alt="Broccoli">
         <span class="product-badge ai">🤖 AI Pick</span>
       </div>
       <div class="product-info">
@@ -1743,13 +1741,13 @@
         <p class="product-weight">400 gm head</p>
         <div class="product-bottom">
           <div class="product-price">₹79 <span class="orig">₹99</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Organic Broccoli','400 gm head',79,'https://images.unsplash.com/photo-1550828520-4cb496926fc9?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Organic Broccoli','400 gm head',79,'assets/products/photo-1550828520-4cb496926fc9.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="https://images.unsplash.com/photo-1606923994480-958244687209?w=400&h=250&fit=crop&auto=format" alt="Bell Peppers Mix">
+        <img src="assets/products/photo-1606923994480-958244687209.jpg" alt="Bell Peppers Mix">
         <span class="product-badge ai">🤖 AI Pick</span>
       </div>
       <div class="product-info">
@@ -1758,7 +1756,7 @@
         <p class="product-weight">500 gm mix</p>
         <div class="product-bottom">
           <div class="product-price">₹129 <span class="orig">₹165</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Tri-Color Bell Peppers','500 gm mix',129,'https://images.unsplash.com/photo-1606923994480-958244687209?w=400&h=250&fit=crop&auto=format')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Tri-Color Bell Peppers','500 gm mix',129,'assets/products/photo-1606923994480-958244687209.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
@@ -2064,7 +2062,7 @@
     </div>
     <div class="testi-card">
       <div class="testi-stars">★★★★★</div>
-      <p class="testi-text">The cut vegetables are a lifesaver on busy weeknights. Pre-cut, hygienic and tastes just like I cut them myself. My family loves it!</p>
+      <p class="testi-text">Tomatoes, spinach, mangoes — everything arrives crisp and fresh. Faster than the big quick-commerce apps for our weekly fruit and veggie run.</p>
       <div class="testi-author">
         <img class="testi-avatar" src="https://randomuser.me/api/portraits/men/36.jpg" alt="Rahul M.">
         <div><div class="testi-name">Rahul Mehta</div><div class="testi-location">Mumbai</div></div>
@@ -2120,7 +2118,6 @@
       <ul>
         <li><a href="fruits.html">Fresh Fruits</a></li>
         <li><a href="vegetables.html">Vegetables</a></li>
-        <li><a href="cut vegetables.html">Cut Vegetables</a></li>
         <li><a href="cart.html">My Cart</a></li>
       </ul>
     </div>

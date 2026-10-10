@@ -1,0 +1,29 @@
+/* Fresh & Safe — client product photography presentation */
+.product-img-wrap {
+  background: linear-gradient(145deg, #f4faf5 0%, #e8f5e9 45%, #dcefdc 100%);
+}
+.product-img-wrap img {
+  object-fit: cover;
+  object-position: center;
+}
+.product-card .product-img-wrap::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(27, 94, 32, 0.06), transparent 70%);
+}
+.product-img-wrap .product-badge,
+.product-img-wrap .product-wishlist {
+  z-index: 2;
+}
+.page-hero-img {
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 12px 40px rgba(27, 94, 32, 0.18);
+  background: #e8f5e9;
+}
+.cat-card > img {
+  object-fit: cover;
+}

@@ -1089,11 +1089,11 @@
 
     container.innerHTML = cart.map(item => {
       const totalItem = (item.price * item.qty).toFixed(2);
-      const img = item.img || 'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=200&h=200&fit=crop&auto=format';
+      const img = item.img || 'assets/products/photo-1610348725531-843dff563e2c.jpg';
       return `
         <div class="cart-item" data-id="${item.id}">
           <div class="cart-item-img">
-            <img src="${img}" alt="${item.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=200&h=200&fit=crop&auto=format'">
+            <img src="${img}" alt="${item.name}" loading="lazy" onerror="this.src='assets/products/photo-1610348725531-843dff563e2c.jpg'">
           </div>
           <div class="cart-item-info">
             <div class="cart-item-name">${item.name}</div>
@@ -1477,10 +1477,10 @@
     const cart = FS.Cart.get();
     if (cart.length === 0) {
       const sampleItems = [
-        { name: 'Fresh Red Apples', weight: '1 kg pack', price: 189.00, qty: 2, img: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=200&h=200&fit=crop&auto=format' },
-        { name: 'Farm Fresh Bananas', weight: '1 dozen (Ripened)', price: 59.00, qty: 1, img: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=200&h=200&fit=crop&auto=format' },
-        { name: 'Organic Spinach (Palak)', weight: '250g bunch', price: 39.00, qty: 3, img: 'https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=200&h=200&fit=crop&auto=format' },
-        { name: 'Red Onions', weight: '2 kg pack', price: 89.00, qty: 1, img: 'https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=200&h=200&fit=crop&auto=format' }
+        { name: 'Fresh Red Apples', weight: '1 kg pack', price: 189.00, qty: 2, img: 'assets/products/photo-1560806887-1e4cd0b6cbd6.jpg' },
+        { name: 'Farm Fresh Bananas', weight: '1 dozen (Ripened)', price: 59.00, qty: 1, img: 'assets/products/photo-1571771894821-ce9b6c11b08e.jpg' },
+        { name: 'Organic Spinach (Palak)', weight: '250g bunch', price: 39.00, qty: 3, img: 'assets/products/photo-1576045057995-568f588f82fb.jpg' },
+        { name: 'Red Onions', weight: '2 kg pack', price: 89.00, qty: 1, img: 'assets/products/photo-1596040033229-a9821ebd058d.jpg' }
       ];
       sampleItems.forEach(it => FS.Cart.add(it));
     }

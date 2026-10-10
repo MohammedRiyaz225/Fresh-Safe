@@ -315,7 +315,6 @@
       <a href="index.html">Home</a>
       <a href="fruits.html">Fruits</a>
       <a href="vegetables.html">Vegetables</a>
-      <a href="cut vegetables.html">Cut Veggies</a>
       <a href="about.html">About</a>
     </div>
     <div class="nav-right">
@@ -912,7 +911,7 @@
     }
     const plans = [
       { name:'Weekly Essentials', desc:'5kg seasonal vegetables, 2kg fresh fruits, milk & bread weekly.', price:799, freq:'week', popular:false, icon:'🥬', items:['Seasonal Veg 5kg','Fresh Fruits 2kg','Dairy Essentials'] },
-      { name:'Family Fresh Pack', desc:'Complete weekly essentials for a family of 4 with cut vegetables.', price:1499, freq:'week', popular:true, icon:'👨‍👩‍👧‍👦', items:['All Veggies + Fruits','Cut Vegetables','Leafy Greens','Herbs'] },
+      { name:'Family Fresh Pack', desc:'Complete weekly fruits & vegetables for a family of 4.', price:1499, freq:'week', popular:true, icon:'👨‍👩‍👧‍👦', items:['Seasonal Fruits','All Vegetables','Leafy Greens','Herbs'] },
       { name:'Monthly Mega Saver', desc:'Huge savings on monthly grocery staples plus monthly exotic fruits.', price:4999, freq:'month', popular:false, icon:'🗓️', items:['Monthly Essentials','Exotic Fruits','Premium Veg','Seasonal Specials'] }
     ];
     document.getElementById('subsPlansGrid').innerHTML = plans.map(p => `<div class="sub-card ${p.popular?'popular':''}">
