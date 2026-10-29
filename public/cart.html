@@ -843,6 +843,7 @@
       .page-header h1 { font-size: 1.7rem; }
     }
   </style>
+  <link rel="stylesheet" href="css/platform.css">
 </head>
 <body>
 
@@ -1089,11 +1090,11 @@
 
     container.innerHTML = cart.map(item => {
       const totalItem = (item.price * item.qty).toFixed(2);
-      const img = item.img || 'assets/products/photo-1610348725531-843dff563e2c.jpg';
+      const img = item.img || 'assets/products/product-image-unavailable.svg';
       return `
         <div class="cart-item" data-id="${item.id}">
           <div class="cart-item-img">
-            <img src="${img}" alt="${item.name}" loading="lazy" onerror="this.src='assets/products/photo-1610348725531-843dff563e2c.jpg'">
+            <img src="${img}" alt="${item.name}" loading="lazy" onerror="this.src='assets/products/product-image-unavailable.svg'">
           </div>
           <div class="cart-item-info">
             <div class="cart-item-name">${item.name}</div>

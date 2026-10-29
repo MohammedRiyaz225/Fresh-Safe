@@ -1443,6 +1443,7 @@
       .cursor-trail { display: none; }
     }
   </style>
+  <link rel="stylesheet" href="css/platform.css">
   <script src="js/product-images.js"></script>
   <script src="js/app.js"></script>
 </head>
@@ -1457,11 +1458,11 @@
 </div>
 
 <!-- CURSOR TRAILS -->
-<div class="cursor-trail ghost" id="cursorGhost"></div>
-<div class="cursor-trail" id="cursorDot"></div>
+<div class="cursor-trail ghost" id="cursorGhost" data-disabled="true"></div>
+<div class="cursor-trail" id="cursorDot" data-disabled="true"></div>
 
 <!-- PARTICLE CANVAS -->
-<canvas id="particlesCanvas"></canvas>
+<canvas id="particlesCanvas" data-disabled="true" aria-hidden="true"></canvas>
 
 <!-- FLOATING ORBS -->
 <div class="orb orb-1"></div>
@@ -1469,7 +1470,7 @@
 <div class="orb orb-3"></div>
 
 <!-- FLOATING BUBBLES CONTAINER -->
-<div id="bubblesContainer" style="position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;"></div>
+<div id="bubblesContainer" data-disabled="true" aria-hidden="true" style="position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:-1;"></div>
 
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
@@ -1492,52 +1493,48 @@
 </nav>
 
 <div class="express-strip">
-  <strong>⚡ 10-minute delivery</strong> <span>· Fruits &amp; vegetables only · Prices compared with quick-commerce apps</span>
+  <strong>Fruits &amp; vegetables, all in one place</strong> <span>· Browse the range and review delivery details at checkout</span>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-badge"><span class="dot"></span> Quick commerce for fresh produce</div>
+    <div class="hero-badge"><span class="dot"></span> Fresh produce, made simple</div>
     <h1>
-      <span class="word">Fresh</span> &amp;
-      <span class="word grad-text">Safe</span>
-      <span class="word">Groceries,</span><br>
-      <span class="word">Right At Your Door</span>
+      <span class="word">Good food</span><br>
+      <span class="word grad-text">starts fresh.</span>
     </h1>
-    <p class="hero-desc">Like Blinkit, but focused only on what matters most — premium fruits and vegetables from verified farms, sorted, packed hygienically, and delivered to your door in minutes.</p>
+    <p class="hero-desc">Shop seasonal fruits and everyday vegetables in one simple place. Find your favourites, add them to your basket, and arrange convenient delivery at checkout.</p>
     <div class="hero-actions">
-      <a href="fruits.html" class="btn-primary magnetic ripple-container"><i class="fa fa-shopping-bag"></i> Shop Fresh Now</a>
-      <a href="about.html" class="btn-outline magnetic"><i class="fa fa-leaf"></i> Our Story</a>
+      <a href="fruits.html" class="btn-primary magnetic ripple-container"><i class="fa fa-shopping-bag"></i> Shop produce</a>
+      <a href="vegetables.html" class="btn-outline magnetic"><i class="fa fa-leaf"></i> Explore vegetables</a>
     </div>
     <ul class="hero-highlights">
-      <li><i class="fa fa-check-circle"></i> Express delivery in 10–30 minutes</li>
-      <li><i class="fa fa-check-circle"></i> 100% traceable farm-fresh produce</li>
-      <li><i class="fa fa-check-circle"></i> No preservatives, no cold storage shortcuts</li>
-      <li><i class="fa fa-check-circle"></i> Free delivery on orders above ₹499</li>
+      <li><i class="fa fa-check-circle"></i> Fruits and vegetables in one shop</li>
+      <li><i class="fa fa-check-circle"></i> Clear prices before checkout</li>
     </ul>
   </div>
   <div class="hero-visual" id="heroVisual">
     <div class="hero-visual-inner" id="heroVisualInner">
-      <div class="float-badge float-badge-1"><i class="fa fa-bolt"></i><div><strong>10</strong><br>Min Delivery</div></div>
-      <div class="float-badge float-badge-2"><i class="fa fa-leaf"></i><div><strong>100%</strong><br>Organic</div></div>
+      <div class="float-badge float-badge-1"><i class="fa fa-basket-shopping"></i><div><strong>Fresh</strong><br>Daily picks</div></div>
+      <div class="float-badge float-badge-2"><i class="fa fa-leaf"></i><div><strong>Seasonal</strong><br>Produce</div></div>
       <div class="slider-wrap-3d">
         <div class="slider-wrap">
           <div class="slide active">
-            <img src="assets/products/photo-1542838132-92c53300491e.jpg" alt="Fresh vegetables basket">
-            <div class="slide-caption"><h3>Farm-Fresh Vegetables</h3><p>Delivered within 4 hours of harvest</p></div>
+            <img src="assets/products/photo-1542838132-92c53300491e.jpg" alt="Fresh vegetables display">
+            <div class="slide-caption"><h3>Everyday Vegetables</h3><p>Find kitchen staples for every meal</p></div>
           </div>
           <div class="slide">
-            <img src="assets/products/photo-1610348725531-843dff563e2c.jpg" alt="Tropical fruits assortment">
-            <div class="slide-caption"><h3>Premium Tropical Fruits</h3><p>Hand-picked for ripeness and taste</p></div>
+            <img src="assets/products/photo-1519996529931-28324d5a630e.jpg" alt="Fresh assorted fruits">
+            <div class="slide-caption"><h3>Seasonal Fruits</h3><p>Browse colourful favourites and new picks</p></div>
           </div>
           <div class="slide">
             <img src="assets/products/photo-1576045057995-568f588f82fb.jpg" alt="Fresh leafy greens">
-            <div class="slide-caption"><h3>Leafy Greens &amp; Herbs</h3><p>Spinach, coriander and more — farm fresh</p></div>
+            <div class="slide-caption"><h3>Leafy Greens &amp; Herbs</h3><p>Bring more greens to your weekly shop</p></div>
           </div>
           <div class="slide">
-            <img src="assets/products/photo-1506617564039-2f3b650b7010.jpg" alt="Organic produce delivery">
-            <div class="slide-caption"><h3>Direct From Our Farms</h3><p>100% organic, zero middlemen</p></div>
+            <img src="assets/products/photo-1506617564039-2f3b650b7010.jpg" alt="Produce display in a grocery store">
+            <div class="slide-caption"><h3>Build Your Basket</h3><p>Choose the produce that works for you</p></div>
           </div>
         </div>
         <div class="slider-dots" id="sliderDots"></div>
@@ -1550,23 +1547,23 @@
 <div class="trust-strip reveal-stagger">
   <div class="trust-card">
     <div class="trust-icon"><i class="fa fa-truck"></i></div>
-    <h4>Express Delivery</h4>
-    <p>Fruits &amp; veggies in as fast as 10 minutes</p>
+    <h4>Fresh produce</h4>
+    <p>Shop fruits and vegetables together</p>
   </div>
   <div class="trust-card">
     <div class="trust-icon"><i class="fa fa-shield-halved"></i></div>
-    <h4>100% Safe &amp; Clean</h4>
-    <p>Washed, sorted and hygienically packed</p>
+    <h4>Easy to browse</h4>
+    <p>Explore clear fruit and vegetable categories</p>
   </div>
   <div class="trust-card">
     <div class="trust-icon"><i class="fa fa-leaf"></i></div>
-    <h4>Farm Traceable</h4>
-    <p>Know exactly where your food comes from</p>
+    <h4>Simple basket</h4>
+    <p>Add the items you need as you shop</p>
   </div>
   <div class="trust-card">
     <div class="trust-icon"><i class="fa fa-headset"></i></div>
-    <h4>24/7 Support</h4>
-    <p>We're always here to help you</p>
+    <h4>Clear checkout</h4>
+    <p>Review your order before you place it</p>
   </div>
 </div>
 
@@ -1575,11 +1572,11 @@
   <div class="section-header reveal">
     <span class="section-tag">Browse Categories</span>
     <h2>What Are You <span class="grad-text">Looking For?</span></h2>
-    <p>Two categories, hundreds of picks — everything you need for a healthy kitchen</p>
+    <p>Browse the essentials for your kitchen, from everyday vegetables to seasonal fruit.</p>
   </div>
   <div class="categories-grid categories-two reveal-stagger">
     <a href="fruits.html" class="cat-card">
-      <img src="assets/products/photo-1610348725531-843dff563e2c.jpg" alt="Fresh Fruits">
+      <img src="assets/products/photo-1519996529931-28324d5a630e.jpg" alt="Fresh assorted fruits">
       <div class="cat-overlay">
         <h3>Fresh Fruits</h3>
         <span>24+ varieties available</span>
@@ -1602,7 +1599,7 @@
   <div class="section-header reveal">
     <span class="section-tag">Customer Favourites</span>
     <h2>Today's <span class="grad-text">Best Picks</span></h2>
-    <p>Hand-curated freshness from our farmers, available for same-day delivery</p>
+    <p>Popular picks to get your basket started.</p>
   </div>
   <div class="products-grid reveal-stagger">
     <div class="product-card">
@@ -1628,8 +1625,8 @@
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="assets/products/photo-1601004890684-d8cbf643f5f2.jpg" alt="Baby Spinach">
-        <span class="product-badge">Organic</span>
+        <img src="assets/products/photo-1576045057995-568f588f82fb.jpg" alt="Baby Spinach">
+        <span class="product-badge">Leafy greens</span>
       </div>
       <div class="product-info">
         <div class="product-rating">★★★★★ <span>(94)</span></div>
@@ -1643,13 +1640,13 @@
         </div>
         <div class="product-bottom">
           <div class="product-price">₹49 <span class="orig">₹65</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Baby Spinach','250 gm pack',49,'assets/products/photo-1601004890684-d8cbf643f5f2.jpg')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Baby Spinach','250 gm pack',49,'assets/products/photo-1576045057995-568f588f82fb.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="assets/products/photo-1550258987-190a2d41a8ba.jpg" alt="Strawberries">
+        <img src="assets/products/product-strawberries.jpg" alt="Fresh strawberries">
         <span class="product-badge new">New</span>
       </div>
       <div class="product-info">
@@ -1664,7 +1661,7 @@
         </div>
         <div class="product-bottom">
           <div class="product-price">₹149 <span class="orig">₹199</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Strawberries','500 gm punnet',149,'assets/products/photo-1550258987-190a2d41a8ba.jpg')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Strawberries','500 gm punnet',149,'assets/products/product-strawberries.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
@@ -1695,15 +1692,15 @@
 <!-- AI PERSONALIZED RECOMMENDATIONS -->
 <section class="section">
   <div class="section-header reveal">
-    <span class="section-tag">🤖 AI Powered</span>
-    <h2>🤖 AI Curated <span class="grad-text">For You</span></h2>
-    <p>Smart picks tailored to your taste, dietary preferences and shopping history</p>
+    <span class="section-tag">More Fresh Picks</span>
+    <h2>More <span class="grad-text">to Explore</span></h2>
+    <p>A few more favourites for your fruit and vegetable basket.</p>
   </div>
   <div class="products-grid reveal-stagger">
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="assets/products/photo-1587735243615-c03f25aaff15.jpg" alt="Avocados">
-        <span class="product-badge ai">🤖 AI Pick</span>
+        <img src="assets/products/product-avocado.jpg" alt="Avocado halves">
+        <span class="product-badge">Popular</span>
       </div>
       <div class="product-info">
         <div class="product-rating">★★★★★ <span>(156)</span></div>
@@ -1711,14 +1708,14 @@
         <p class="product-weight">3 pcs pack</p>
         <div class="product-bottom">
           <div class="product-price">₹299 <span class="orig">₹380</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Hass Avocado','3 pcs pack',299,'assets/products/photo-1587735243615-c03f25aaff15.jpg')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Hass Avocado','3 pcs pack',299,'assets/products/product-avocado.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="assets/products/photo-1519996529931-28324d5a630e.jpg" alt="Blueberries">
-        <span class="product-badge ai">🤖 AI Pick</span>
+        <img src="assets/products/product-blueberries.jpg" alt="Fresh blueberries">
+        <span class="product-badge">Popular</span>
       </div>
       <div class="product-info">
         <div class="product-rating">★★★★★ <span>(89)</span></div>
@@ -1726,44 +1723,40 @@
         <p class="product-weight">200 gm box</p>
         <div class="product-bottom">
           <div class="product-price">₹249 <span class="orig">₹320</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Blueberries','200 gm box',249,'assets/products/photo-1519996529931-28324d5a630e.jpg')"><i class="fa fa-plus"></i></button>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Blueberries','200 gm box',249,'assets/products/product-blueberries.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="assets/products/photo-1550828520-4cb496926fc9.jpg" alt="Broccoli">
-        <span class="product-badge ai">🤖 AI Pick</span>
+        <img src="assets/products/photo-1459411621453-7b03977f4bfc.jpg" alt="Broccoli">
+        <span class="product-badge">Popular</span>
       </div>
       <div class="product-info">
         <div class="product-rating">★★★★☆ <span>(112)</span></div>
-        <h4>Organic Broccoli</h4>
-        <p class="product-weight">400 gm head</p>
+        <h4>Fresh Broccoli</h4>
+        <p class="product-weight">500 gm</p>
         <div class="product-bottom">
-          <div class="product-price">₹79 <span class="orig">₹99</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Organic Broccoli','400 gm head',79,'assets/products/photo-1550828520-4cb496926fc9.jpg')"><i class="fa fa-plus"></i></button>
+          <div class="product-price">₹89 <span class="orig">₹110</span></div>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Fresh Broccoli','500 gm',89,'assets/products/photo-1459411621453-7b03977f4bfc.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
     <div class="product-card">
       <div class="product-img-wrap">
-        <img src="assets/products/photo-1606923994480-958244687209.jpg" alt="Bell Peppers Mix">
-        <span class="product-badge ai">🤖 AI Pick</span>
+        <img src="assets/products/product-bell-peppers.jpg" alt="Red, yellow, and green bell peppers">
+        <span class="product-badge">Popular</span>
       </div>
       <div class="product-info">
         <div class="product-rating">★★★★★ <span>(78)</span></div>
-        <h4>Tri-Color Bell Peppers</h4>
-        <p class="product-weight">500 gm mix</p>
+        <h4>Capsicum (Mixed)</h4>
+        <p class="product-weight">500 gm · Red, green, yellow</p>
         <div class="product-bottom">
-          <div class="product-price">₹129 <span class="orig">₹165</span></div>
-          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Tri-Color Bell Peppers','500 gm mix',129,'assets/products/photo-1606923994480-958244687209.jpg')"><i class="fa fa-plus"></i></button>
+          <div class="product-price">₹79 <span class="orig">₹99</span></div>
+          <button class="add-to-cart-btn ripple-container" onclick="addToCart('Capsicum (Mixed)','500 gm',79,'assets/products/product-bell-peppers.jpg')"><i class="fa fa-plus"></i></button>
         </div>
       </div>
     </div>
-  </div>
-  <div class="ai-note reveal">
-    <i class="fa fa-brain"></i>
-    <span>Based on your recent purchases &amp; dietary preferences — updated every few hours</span>
   </div>
 </section>
 
@@ -2156,13 +2149,15 @@
   // ========== PRELOADER ==========
   window.addEventListener('load', () => {
     setTimeout(() => {
-      document.getElementById('preloader').classList.add('hidden');
+      const loader = document.getElementById('preloader');
+      if (loader) loader.classList.add('hidden');
     }, 2200);
   });
 
   // ========== PARTICLE CANVAS SYSTEM ==========
   (function() {
     const canvas = document.getElementById('particlesCanvas');
+    if (!canvas || canvas.dataset.disabled === 'true') return;
     const ctx = canvas.getContext('2d');
     let particles = [];
     const particleCount = window.innerWidth < 768 ? 35 : 70;
@@ -2212,6 +2207,7 @@
   // ========== FLOATING BUBBLES ==========
   (function() {
     const container = document.getElementById('bubblesContainer');
+    if (!container || container.dataset.disabled === 'true') return;
     const count = 12;
     for (let i = 0; i < count; i++) {
       const b = document.createElement('div');
@@ -2233,6 +2229,7 @@
 
     const ghost = document.getElementById('cursorGhost');
     const dot = document.getElementById('cursorDot');
+    if (!ghost || !dot || ghost.dataset.disabled === 'true') return;
     let mouseX = 0, mouseY = 0;
     let ghostX = 0, ghostY = 0;
 
