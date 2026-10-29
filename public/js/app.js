@@ -29,7 +29,19 @@ const FS = (function() {
 
   // ============ CART ============
   const Cart = {
-    get() { return storageGet(STORAGE_KEYS.CART, []); },
+    get() {
+      const cart = storageGet(STORAGE_KEYS.CART, []);
+      if (!Array.isArray(cart)) return [];
+      let migrated = false;
+      cart.forEach(item => {
+        if (item && typeof item === 'object' && !item.id) {
+          item.id = uid();
+          migrated = true;
+        }
+      });
+      if (migrated) storageSet(STORAGE_KEYS.CART, cart);
+      return cart;
+    },
     set(cart) { storageSet(STORAGE_KEYS.CART, cart); this.updateBadge(); },
     add(item) {
       const cart = this.get();

@@ -3,7 +3,7 @@
  */
 (function (global) {
   const BASE = 'assets/products/';
-  const FALLBACK = BASE + 'photo-1610348725531-843dff563e2c.jpg';
+  const FALLBACK = BASE + 'product-image-unavailable.svg';
 
   function fromPhotoId(photoId) {
     if (!photoId) return FALLBACK;
