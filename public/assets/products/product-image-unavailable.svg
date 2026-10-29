@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Product image unavailable">
+  <rect width="640" height="480" rx="32" fill="#f1f3e4"/>
+  <g fill="none" stroke="#6a8a61" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
+    <path d="M170 220h300l-28 170H198z"/>
+    <path d="m226 220 35 170m118-170-6 170m61-170-34 170"/>
+    <path d="M320 198c-6-54 22-93 77-108-1 50-26 84-77 108Z" fill="#c8e477"/>
+    <path d="M320 198c2-42-19-72-60-88 0 40 20 70 60 88Z" fill="#dce9a8"/>
+  </g>
+  <text x="320" y="440" fill="#46564a" font-family="Arial,sans-serif" font-size="24" text-anchor="middle">Image unavailable</text>
+</svg>
