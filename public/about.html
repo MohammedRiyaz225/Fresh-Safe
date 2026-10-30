@@ -148,29 +148,6 @@
     }
     @keyframes badgePop { 0% { transform: scale(0); } 100% { transform: scale(1); } }
 
-    /* ===== BREADCRUMB ===== */
-    .breadcrumb-section {
-      padding: 20px 5%;
-      background: linear-gradient(135deg, rgba(10,46,15,0.04), rgba(138,227,124,0.08));
-      border-bottom: 1px solid rgba(138,227,124,0.15);
-    }
-    .breadcrumb {
-      display: flex; align-items: center; gap: 10px;
-      font-size: 0.88rem; color: var(--text-soft);
-      flex-wrap: wrap;
-    }
-    .breadcrumb a {
-      color: var(--green-bright); font-weight: 500;
-      transition: var(--transition);
-      display: inline-flex; align-items: center; gap: 6px;
-    }
-    .breadcrumb a:hover { color: var(--green-dark); transform: translateX(-2px); }
-    .breadcrumb .sep { color: var(--text-muted); font-size: 0.75rem; }
-    .breadcrumb .current {
-      color: var(--text-dark); font-weight: 600;
-      display: inline-flex; align-items: center; gap: 6px;
-    }
-
     /* ===== HERO SECTION ===== */
     .about-hero {
       padding: 60px 5% 70px;
@@ -424,153 +401,6 @@
       border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    /* ===== CTA BANNER ===== */
-    .cta-section { padding: 0 5% 70px; position: relative; z-index: 2; }
-    .cta-banner {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: linear-gradient(135deg, var(--green-dark) 0%, #1b5e20 50%, var(--green-bright) 100%);
-      background-size: 200% 200%;
-      animation: gradShift 8s ease infinite;
-      border-radius: 48px; padding: 64px 56px;
-      display: grid; grid-template-columns: 1.2fr 0.8fr;
-      align-items: center; gap: 48px;
-      position: relative; overflow: hidden;
-      box-shadow: var(--shadow-xl), 0 0 100px rgba(46,125,50,0.3);
-    }
-    .cta-banner::before {
-      content: ''; position: absolute; right: -100px; top: -100px;
-      width: 400px; height: 400px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(138,227,124,0.25), transparent 70%);
-      animation: orbFloat 10s ease-in-out infinite;
-    }
-    .cta-banner::after {
-      content: ''; position: absolute; left: -60px; bottom: -80px;
-      width: 300px; height: 300px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
-      animation: orbFloat 12s ease-in-out infinite reverse;
-    }
-    .cta-content { position: relative; z-index: 1; }
-    .cta-content h2 {
-      font-family: 'Outfit', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 900; color: white; margin-bottom: 14px; letter-spacing: -0.02em;
-    }
-    .cta-content p { color: rgba(255,255,255,0.82); font-size: 1.05rem; max-width: 540px; line-height: 1.8; margin-bottom: 28px; }
-    .cta-contact-grid {
-      display: flex; flex-wrap: wrap; gap: 18px;
-      margin-bottom: 28px;
-    }
-    .cta-contact-item {
-      display: flex; align-items: center; gap: 10px;
-      color: rgba(255,255,255,0.9);
-      font-size: 0.92rem;
-      background: rgba(255,255,255,0.08);
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(8px);
-      transition: var(--transition);
-    }
-    .cta-contact-item:hover {
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(138,227,124,0.4);
-      transform: translateY(-2px);
-    }
-    .cta-contact-item i { color: var(--green-mint); }
-    .cta-actions {
-      display: flex; gap: 14px; flex-wrap: wrap;
-    }
-    .btn-primary {
-      background: var(--green-mint); color: var(--text-dark);
-      padding: 18px 36px; border-radius: 999px;
-      font-weight: 700; font-size: 1rem; white-space: nowrap;
-      transition: var(--transition-bounce); position: relative; z-index: 1;
-      box-shadow: 0 8px 28px rgba(138,227,124,0.4);
-      display: inline-flex; align-items: center; gap: 10px;
-      overflow: hidden;
-    }
-    .btn-primary::before {
-      content: ''; position: absolute; top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-      transition: left 0.7s ease;
-    }
-    .btn-primary:hover::before { left: 100%; }
-    .btn-primary:hover {
-      background: white; transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.25);
-    }
-    .btn-outline-white {
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(12px);
-      color: white; padding: 18px 36px; border-radius: 999px;
-      font-weight: 600; font-size: 1rem;
-      border: 2px solid rgba(255,255,255,0.3);
-      transition: var(--transition-bounce);
-      display: inline-flex; align-items: center; gap: 10px;
-      position: relative; z-index: 1;
-    }
-    .btn-outline-white:hover {
-      border-color: var(--green-mint);
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 12px 36px rgba(0,0,0,0.2);
-    }
-    .cta-visual {
-      position: relative; z-index: 1;
-      display: flex; justify-content: center;
-    }
-    .cta-visual-card {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(20px) saturate(180%);
-      border-radius: var(--radius-xl);
-      padding: 32px;
-      border: 1px solid rgba(255,255,255,0.15);
-      text-align: center;
-      max-width: 340px;
-      animation: floatCard 5s ease-in-out infinite;
-    }
-    @keyframes floatCard {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-16px); }
-    }
-    .cta-visual-icon {
-      width: 84px; height: 84px;
-      border-radius: 28px;
-      background: linear-gradient(135deg, var(--green-mint), var(--green-light));
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-      font-size: 2.2rem;
-      color: var(--green-dark);
-      box-shadow: 0 10px 32px rgba(138,227,124,0.45);
-    }
-    .cta-visual-card h4 {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.3rem; font-weight: 800;
-      color: white; margin-bottom: 8px;
-    }
-    .cta-visual-card p {
-      font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.7;
-    }
-    .cta-visual-stat {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      display: flex; justify-content: center; gap: 28px;
-    }
-    .cta-stat-item { text-align: center; }
-    .cta-stat-num {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.8rem; font-weight: 900;
-      color: var(--green-mint);
-      line-height: 1;
-    }
-    .cta-stat-label {
-      font-size: 0.72rem; color: rgba(255,255,255,0.55);
-      margin-top: 4px;
-      text-transform: uppercase; letter-spacing: 0.06em;
-    }
-
     /* ===== FOOTER ===== */
     .footer {
       background: linear-gradient(135deg, rgba(10,46,15,0.98), rgba(16,50,20,0.97));
@@ -688,15 +518,6 @@
       </div>
     </div>
   </nav>
-
-  <!-- ===== BREADCRUMB ===== -->
-  <div class="breadcrumb-section">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="index.html"><i class="fa fa-house"></i> Home</a>
-      <span class="sep"><i class="fa fa-chevron-right"></i></span>
-      <span class="current"><i class="fa fa-leaf"></i> About Us</span>
-    </nav>
-  </div>
 
   <!-- ===== HERO SECTION ===== -->
   <section class="about-hero">
@@ -816,60 +637,7 @@
         <p class="press-quote">"Arjun & Priya's journey: Leaving corporate jobs to build the farm-to-home platform India needed."</p>
       </div>
     </div>
-  </section>
-
-  <!-- ===== CTA BANNER ===== -->
-  <section class="cta-section">
-    <div class="cta-banner reveal-scale">
-      <div class="cta-content">
-        <h2>Want to partner with us?</h2>
-        <p>Whether you're a farmer looking for fair markets, a business seeking bulk supplies, or a courier wanting to join our delivery network — we'd love to hear from you. Let's grow together.</p>
-        <div class="cta-contact-grid">
-          <div class="cta-contact-item">
-            <i class="fa fa-envelope"></i>
-            <span>partner@freshsafe.in</span>
-          </div>
-          <div class="cta-contact-item">
-            <i class="fa fa-phone"></i>
-            <span>+91 98765 43210</span>
-          </div>
-          <div class="cta-contact-item">
-            <i class="fa fa-location-dot"></i>
-            <span>Bengaluru, India</span>
-          </div>
-        </div>
-        <div class="cta-actions">
-          <a href="mailto:partner@freshsafe.in" class="btn-primary">
-            <i class="fa fa-handshake"></i>
-            Contact Us Today
-          </a>
-          <a href="#" class="btn-outline-white">
-            <i class="fa fa-download"></i>
-            Download Partnership Deck
-          </a>
-        </div>
-      </div>
-      <div class="cta-visual">
-        <div class="cta-visual-card">
-          <div class="cta-visual-icon">
-            <i class="fa fa-handshake-angle"></i>
-          </div>
-          <h4>Grow With Us</h4>
-          <p>Join 150+ partners who trust Fresh & Safe to build a healthier food ecosystem for India.</p>
-          <div class="cta-visual-stat">
-            <div class="cta-stat-item">
-              <div class="cta-stat-num">150+</div>
-              <div class="cta-stat-label">Partners</div>
-            </div>
-            <div class="cta-stat-item">
-              <div class="cta-stat-num">₹5Cr+</div>
-              <div class="cta-stat-label">Farmer Payouts</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </section
 
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
